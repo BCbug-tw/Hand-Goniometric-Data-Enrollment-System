@@ -2,7 +2,7 @@
 
 This is a modern, responsive web application built with React, Vite, Tailwind CSS, and React-Bootstrap. It is designed to assist clinical researchers and medical professionals in collecting, recording, and exporting goniometric measurement data and media (photos/videos) of patients' hands.
 
-## ✨ Features
+## Features
 
 - **Step-by-Step Wizard**: A seamless 6-step flow to ensure no data is missed during the enrollment process.
 - **Bilingual Interface**: Fully supports English and Traditional Chinese via `react-i18next`.
@@ -13,7 +13,7 @@ This is a modern, responsive web application built with React, Vite, Tailwind CS
 
 ---
 
-## 📖 Page Usage & Flow
+## Page Usage & Flow
 
 The application follows a linear 6-step wizard flow:
 
@@ -42,7 +42,7 @@ The application follows a linear 6-step wizard flow:
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Frontend Framework**: React 19, Vite
 - **UI & Styling**: React-Bootstrap 5, Tailwind CSS 4, Lucide React (Icons)
