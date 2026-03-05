@@ -68,8 +68,10 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                                             </Form.Label>
                                             <Form.Control
                                                 type="number"
-                                                step="0.1"
-                                                placeholder="0.0"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
+                                                step="1"
+                                                placeholder="0"
                                                 value={data.left?.[joint.key] || ''}
                                                 onChange={(e) => handleChange('left', joint.key, e.target.value)}
                                                 className="border-0 shadow-sm"
@@ -92,8 +94,10 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                                             </Form.Label>
                                             <Form.Control
                                                 type="number"
-                                                step="0.1"
-                                                placeholder="0.0"
+                                                inputMode="numeric"
+                                                pattern="[0-9]*"
+                                                step="1"
+                                                placeholder="0"
                                                 value={data.right?.[joint.key] || ''}
                                                 onChange={(e) => handleChange('right', joint.key, e.target.value)}
                                                 className="border-0 shadow-sm"
