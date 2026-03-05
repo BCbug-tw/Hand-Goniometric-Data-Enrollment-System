@@ -37,11 +37,11 @@ const resources = {
                 "next": "Confirm & Next"
             },
             "camera": {
-                "title_left": "Camera: Left Hand",
-                "title_right": "Camera: Right Hand",
+                "title_left": "Left Hand",
+                "title_right": "Right Hand",
                 "photo": "Photo",
                 "video": "Video",
-                "continue": "Continue",
+                "continue": "Next",
                 "retry": "Retry Camera",
                 "error_access": "Failed to access camera. Please ensure permissions are granted.",
                 "error_support": "Recording is not supported in this browser."
