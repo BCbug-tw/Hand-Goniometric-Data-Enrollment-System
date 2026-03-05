@@ -45,8 +45,11 @@ export default function App() {
     <div className="bg-light min-vh-100">
       <nav className="navbar navbar-dark bg-primary shadow-sm mb-4">
         <div className="container-fluid d-flex justify-content-between align-items-center">
-          <div style={{ width: 80 }}></div> {/* Spacer for symmetry */}
-          <span className="navbar-brand mb-0 h1 m-0">{t('app.title')}</span>
+          <div style={{ width: 80 }} className="d-none d-sm-block"></div> {/* Spacer for symmetry on larger screens */}
+          <span className="navbar-brand mb-0 h1 m-0 text-truncate" style={{ maxWidth: '65vw' }}>
+            <span className="d-none d-sm-inline">{t('app.title')}</span>
+            <span className="d-inline d-sm-none fs-5">Hand Goniometry</span>
+          </span>
           <Button
             variant="outline-light"
             size="sm"
@@ -63,13 +66,31 @@ export default function App() {
         <Row className="justify-content-center">
           <Col xs={12} md={10} lg={8} xl={6}>
             {/* Step Progress Indicator */}
-            <div className="d-flex justify-content-between mb-4 px-3 text-muted small">
-              <span className={currentStep >= 1 ? "text-primary fw-bold" : ""}>{t('stepper.info')}</span>
-              <span className={currentStep >= 2 ? "text-primary fw-bold" : ""}>{t('stepper.pre_confirm')}</span>
-              <span className={currentStep >= 3 ? "text-primary fw-bold" : ""}>{t('stepper.left_hand')}</span>
-              <span className={currentStep >= 4 ? "text-primary fw-bold" : ""}>{t('stepper.right_hand')}</span>
-              <span className={currentStep >= 5 ? "text-primary fw-bold" : ""}>{t('stepper.measurements')}</span>
-              <span className={currentStep >= 6 ? "text-primary fw-bold" : ""}>{t('stepper.confirm')}</span>
+            <div className="d-flex justify-content-between mb-4 px-2 text-muted small" style={{ fontSize: '0.75rem' }}>
+              <span className={`text-center ${currentStep >= 1 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.info')}</span>
+                <span className="d-inline d-md-none">1</span>
+              </span>
+              <span className={`text-center ${currentStep >= 2 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.pre_confirm')}</span>
+                <span className="d-inline d-md-none">2</span>
+              </span>
+              <span className={`text-center ${currentStep >= 3 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.left_hand')}</span>
+                <span className="d-inline d-md-none">3</span>
+              </span>
+              <span className={`text-center ${currentStep >= 4 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.right_hand')}</span>
+                <span className="d-inline d-md-none">4</span>
+              </span>
+              <span className={`text-center ${currentStep >= 5 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.measurements')}</span>
+                <span className="d-inline d-md-none">5</span>
+              </span>
+              <span className={`text-center ${currentStep >= 6 ? "text-primary fw-bold" : ""}`}>
+                <span className="d-none d-md-inline">{t('stepper.confirm')}</span>
+                <span className="d-inline d-md-none">6</span>
+              </span>
             </div>
 
             <Card className="shadow-sm border-0 rounded-4 overflow-hidden">
