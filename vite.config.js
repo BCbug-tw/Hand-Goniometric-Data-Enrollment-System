@@ -3,10 +3,6 @@ import react from '@vitejs/plugin-react-swc'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: './', // Ensures static assets load correctly regardless of subpath
   plugins: [react()],
-  server: {
-    port: 5174,
-    allowedHosts: true
-  }
+  base: '/Hand-Goniometric-Data-Enrollment-System/',
 })
