@@ -5,7 +5,7 @@ const resources = {
     en: {
         translation: {
             "app": {
-                "title": "Hand Measurement Enrollment System"
+                "title": "Hand Goniometric Data Enrollment System"
             },
             "stepper": {
                 "info": "Info",
@@ -80,7 +80,7 @@ const resources = {
     "zh-TW": {
         translation: {
             "app": {
-                "title": "手部量測收案系統"
+                "title": "手部關節活動度資料登錄系統"
             },
             "stepper": {
                 "info": "資訊",
