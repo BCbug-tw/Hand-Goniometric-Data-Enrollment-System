@@ -5,15 +5,15 @@ const resources = {
     en: {
         translation: {
             "app": {
-                "title": "Hand Goniometric Data Enrollment System"
+                "title": "HGDES"
             },
             "stepper": {
                 "info": "Info",
-                "pre_confirm": "Confirm Info",
-                "left_hand": "Left Hand",
-                "right_hand": "Right Hand",
+                "pre_confirm": "Confirm",
+                "left_hand": "LH",
+                "right_hand": "RH",
                 "measurements": "Goniometry",
-                "confirm": "Confirm"
+                "confirm": "Check"
             },
             "patient_form": {
                 "title": "Patient Information",
@@ -34,7 +34,7 @@ const resources = {
                 "guide_title": "Trial Guide",
                 "guide_placeholder": "A GIF animation for the trial guide will be placed here in the future.",
                 "back": "Back to Edit",
-                "next": "Confirm & Proceed to Capture"
+                "next": "Confirm & Next"
             },
             "camera": {
                 "photo": "Photo",
@@ -59,8 +59,7 @@ const resources = {
                 "no_captures": "No {{side}} Captures",
                 "left_hand": "Left Hand",
                 "right_hand": "Right Hand",
-                "measurements_recorded": "{{count}} / 30 Measurements Recorded",
-                "packaged": "Data packaged for upload.",
+                "measurements": "Measurements",
                 "upload_failed": "Upload failed",
                 "uploading": "Uploading securely...",
                 "retry": "Retry Upload",
@@ -70,7 +69,7 @@ const resources = {
                 "complete_msg2": " has been successfully saved to the server.",
                 "uploaded_files": "Uploaded {{count}} files.",
                 "capture_another": "Capture Another Patient",
-                "download_zip": "Download ZIP (Local Backup)",
+                "download_zip": "Local Download (ZIP)",
                 "zipping": "Preparing ZIP...",
                 "zip_success": "Downloaded",
                 "zip_error": "Failed to create ZIP"
@@ -134,8 +133,7 @@ const resources = {
                 "no_captures": "無{{side}}影像",
                 "left_hand": "左手",
                 "right_hand": "右手",
-                "measurements_recorded": "已記錄 {{count}} / 30 筆量測",
-                "packaged": "資料已打包準備上傳。",
+                "measurements": "關節量測資料",
                 "upload_failed": "上傳失敗",
                 "uploading": "安全上傳中...",
                 "retry": "重試上傳",

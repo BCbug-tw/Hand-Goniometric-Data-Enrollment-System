@@ -208,8 +208,6 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
         );
     }
 
-    const measurementCount = Object.keys(measurements.left || {}).length + Object.keys(measurements.right || {}).length;
-
     return (
         <div className="p-4 p-md-5">
             <div className="d-flex align-items-center mb-4 gap-3">
@@ -243,23 +241,62 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                 </Col>
             </Row>
 
-            <Card className="border-0 bg-light shadow-sm rounded-4 mb-5 text-center p-3">
-                <div className="d-flex align-items-center justify-content-center gap-2 text-primary fw-medium mb-1">
-                    <Activity size={18} />
-                    {t('confirmation.measurements_recorded', { count: measurementCount })}
-                </div>
-                <div className="small text-muted">{t('confirmation.packaged')}</div>
-            </Card>
-
-            {uploadStatus === 'error' && (
-                <Alert variant="danger" className="d-flex align-items-start gap-3 border-0 rounded-4 mb-4">
-                    <AlertCircle size={20} className="mt-1 flex-shrink-0" />
-                    <div>
-                        <strong>{t('confirmation.upload_failed')}</strong>
-                        <div className="small opacity-75">{errorMessage}</div>
-                    </div>
-                </Alert>
+            {(Object.keys(measurements.left || {}).length > 0 || Object.keys(measurements.right || {}).length > 0) && (
+                <Card className="border-0 bg-white shadow-sm rounded-4 mb-5">
+                    <Card.Body className="p-4">
+                        <h6 className="fw-bold mb-3 d-flex align-items-center gap-2">
+                            <Activity size={16} className="text-primary" />
+                            {t('confirmation.measurements')}
+                        </h6>
+                        <Row className="g-4">
+                            <Col xs={12} md={6}>
+                                <div className="small fw-bold text-muted text-uppercase mb-2 border-bottom pb-1">{t('confirmation.left_hand')}</div>
+                                <div className="d-grid gap-2 text-sm" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))' }}>
+                                    {Object.entries(measurements.left || {}).map(([joint, value]) => (
+                                        value && (
+                                            <div key={`left-${joint}`} className="d-flex justify-content-between bg-light rounded px-2 py-1">
+                                                <span className="text-secondary small">{joint.replace('_', ' ')}</span>
+                                                <span className="fw-medium">{value}</span>
+                                            </div>
+                                        )
+                                    ))}
+                                    {Object.keys(measurements.left || {}).filter(k => measurements.left[k]).length === 0 && (
+                                        <div className="text-muted small fst-italic">-</div>
+                                    )}
+                                </div>
+                            </Col>
+                            <Col xs={12} md={6}>
+                                <div className="small fw-bold text-muted text-uppercase mb-2 border-bottom pb-1">{t('confirmation.right_hand')}</div>
+                                <div className="d-grid gap-2 text-sm" style={{ gridTemplateColumns: 'repeat(auto-fill, minmax(120px, 1fr))' }}>
+                                    {Object.entries(measurements.right || {}).map(([joint, value]) => (
+                                        value && (
+                                            <div key={`right-${joint}`} className="d-flex justify-content-between bg-light rounded px-2 py-1">
+                                                <span className="text-secondary small">{joint.replace('_', ' ')}</span>
+                                                <span className="fw-medium">{value}</span>
+                                            </div>
+                                        )
+                                    ))}
+                                    {Object.keys(measurements.right || {}).filter(k => measurements.right[k]).length === 0 && (
+                                        <div className="text-muted small fst-italic">-</div>
+                                    )}
+                                </div>
+                            </Col>
+                        </Row>
+                    </Card.Body>
+                </Card>
             )}
+
+            {
+                uploadStatus === 'error' && (
+                    <Alert variant="danger" className="d-flex align-items-start gap-3 border-0 rounded-4 mb-4">
+                        <AlertCircle size={20} className="mt-1 flex-shrink-0" />
+                        <div>
+                            <strong>{t('confirmation.upload_failed')}</strong>
+                            <div className="small opacity-75">{errorMessage}</div>
+                        </div>
+                    </Alert>
+                )
+            }
 
             <Row className="g-3">
                 <Col xs={12} md={6} className={uploadStatus === 'uploading' ? 'd-none' : ''}>
@@ -307,6 +344,6 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                     )}
                 </Col>
             </Row>
-        </div>
+        </div >
     );
 }
