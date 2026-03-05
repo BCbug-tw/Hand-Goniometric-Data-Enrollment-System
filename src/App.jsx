@@ -90,7 +90,7 @@ export default function App() {
                 )}
                 {currentStep === 3 && (
                   <CameraCapture
-                    title="Camera: Left Hand (左手)"
+                    title={t('camera.title_left')}
                     side="left"
                     onCapture={(media) => {
                       setLeftHandMedia(media);
@@ -101,7 +101,7 @@ export default function App() {
                 )}
                 {currentStep === 4 && (
                   <CameraCapture
-                    title="Camera: Right Hand (右手)"
+                    title={t('camera.title_right')}
                     side="right"
                     onCapture={(media) => {
                       setRightHandMedia(media);

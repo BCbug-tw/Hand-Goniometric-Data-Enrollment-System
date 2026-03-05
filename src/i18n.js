@@ -37,6 +37,8 @@ const resources = {
                 "next": "Confirm & Next"
             },
             "camera": {
+                "title_left": "Camera: Left Hand",
+                "title_right": "Camera: Right Hand",
                 "photo": "Photo",
                 "video": "Video",
                 "continue": "Continue",
@@ -111,6 +113,8 @@ const resources = {
                 "next": "確認並進行拍攝"
             },
             "camera": {
+                "title_left": "拍攝：左手",
+                "title_right": "拍攝：右手",
                 "photo": "拍照",
                 "video": "錄影",
                 "continue": "繼續",
