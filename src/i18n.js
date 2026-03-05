@@ -12,7 +12,7 @@ const resources = {
                 "pre_confirm": "Confirm Info",
                 "left_hand": "Left Hand",
                 "right_hand": "Right Hand",
-                "measurements": "Measurements",
+                "measurements": "Goniometry",
                 "confirm": "Confirm"
             },
             "patient_form": {
@@ -45,7 +45,7 @@ const resources = {
                 "error_support": "Recording is not supported in this browser."
             },
             "measurements": {
-                "title": "Joint Measurements",
+                "title": "Joint Goniometry",
                 "subtitle": "Record values in mm or degrees",
                 "left_hand": "Left Hand",
                 "right_hand": "Right Hand",
