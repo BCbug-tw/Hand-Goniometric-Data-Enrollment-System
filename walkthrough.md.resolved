@@ -1,0 +1,37 @@
+# Frontend Development Walkthrough
+
+I have successfully initialized and built the React frontend for the Clinical Trial Enrollment App based on your requirements.
+
+## 1. Project Setup
+- The project was scaffolded using **Vite + React** for fast performance.
+- Both `axios` (for API calls) and `lucide-react` (for modern icons) were installed.
+- **Tailwind CSS** was configured to provide rapid styling and a modern, premium "dark mode" aesthetic.
+
+## 2. Implemented Features (Step Wizard)
+
+The application utilizes a main controller [App.jsx](file:///c:/Users/user/Documents/3D%20hand%20pose/Clinical%20Trial%20Enrollment%20App/frontend/src/App.jsx) to navigate between the three main steps smoothly, maintaining the state of the form and captured media.
+
+### Step 1: Patient Data Form
+- Contains inputs for **Patient ID (Required)**, First Name, Last Name, and Date of Birth.
+- Validates that the Patient ID is not empty before allowing the user to proceed.
+- Uses modern glassmorphism styling (`backdrop-blur`) with subtle animations.
+
+### Step 2: Camera Capture
+- Integrates with the browser's `navigator.mediaDevices.getUserMedia` API, prioritizing the rear camera (`facingMode: 'environment'`).
+- Supports both **Photo** and **Video** modes via a toggle switch (hidden when recording).
+- **Video Mode constraints**: Limits recording to a maximum of **15 seconds**, showing a pulsing red recording timer.
+- **Hand Overlay**: Displays a custom, glowing SVG outline of a hand (with dashed strokes) overlaid on the video feed to guide the user's hand placement.
+
+### Step 3: Preview & Upload Confirmation
+- Displays an aesthetic preview of the media just captured.
+- Communicates with the backend using `axios`, sending the medical data and file via `FormData`.
+- Displays a smooth, gradient **Progress Bar** reflecting the upload percentage to the server.
+- Supports handling successful uploads or displaying error states with a retry option.
+
+## 3. Testing
+- The frontend is now running on your local machine at: `http://localhost:5173/`
+- All components render correctly. The camera requires browser permissions to function.
+
+## How to View
+To test it out yourself, open a browser and navigate to `http://localhost:5173/`. 
+*(Note: Because it's on localhost, the browser will allow camera access. If you access it from a mobile device on your network, ensure you use HTTPS/a secure tunnel like ngrok, or use Chrome's port forwarding, as browsers require secure contexts for the Camera API).*
