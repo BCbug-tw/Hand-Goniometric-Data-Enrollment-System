@@ -80,7 +80,7 @@ const resources = {
     "zh-TW": {
         translation: {
             "app": {
-                "title": "手部關節活動度資料登錄系統"
+                "title": "手關節量測收案系統"
             },
             "stepper": {
                 "info": "資訊",
