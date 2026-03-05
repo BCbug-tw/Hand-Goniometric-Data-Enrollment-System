@@ -142,7 +142,7 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                 setProgress(prev => (prev < 90 ? prev + 10 : prev));
             }, 500);
 
-            const API_URL = 'https://script.google.com/macros/s/AKfycbzsUCP7CsJMBHFm3nwXb4zTlzJqbk0dEjmQ5XSZKyN3CyYuGUQ3L2dKcrRPZndH_YGZ/exec';
+            const API_URL = 'https://script.google.com/macros/s/AKfycbxgee-TmBYPDEE8CyzDOMeXehATqsKElySrgQz5xdxWUDBo4-TDvanZQFanh5yNs1b3/exec';
 
             const response = await axios.post(API_URL, formData);
             clearInterval(progressInterval);
