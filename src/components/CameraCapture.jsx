@@ -203,31 +203,29 @@ export default function CameraCapture({ title, side, onCapture, onBack }) {
             <div className="bg-black text-white p-3 d-flex flex-column gap-3 shadow-lg" style={{ borderTop: '1px solid #333' }}>
 
                 {/* Gallery Section */}
-                {gallery.length > 0 && (
-                    <div className="w-100 overflow-auto d-flex gap-2" style={{ scrollbarWidth: 'none', height: '60px' }}>
-                        {gallery.map((item, idx) => (
-                            <div key={item.id} className="position-relative flex-shrink-0 rounded overflow-hidden border border-secondary" style={{ width: 60, height: 60 }}>
-                                <Button
-                                    variant="danger"
-                                    size="sm"
-                                    className="position-absolute top-0 end-0 p-0 m-1 rounded-circle d-flex align-items-center justify-content-center"
-                                    style={{ width: 16, height: 16, zIndex: 5 }}
-                                    onClick={() => removeMedia(idx)}
-                                >
-                                    <X size={10} />
-                                </Button>
-                                {item.type === 'image' ? (
-                                    <img src={item.url} className="w-100 h-100 object-fit-cover opacity-75" alt="preview" />
-                                ) : (
-                                    <div className="w-100 h-100 bg-secondary d-flex align-items-center justify-content-center text-white position-relative">
-                                        <video src={item.url} className="position-absolute w-100 h-100 object-fit-cover opacity-50" />
-                                        <Video size={16} className="position-relative z-1" />
-                                    </div>
-                                )}
-                            </div>
-                        ))}
-                    </div>
-                )}
+                <div className="w-100 overflow-auto d-flex gap-2" style={{ scrollbarWidth: 'none', height: '60px' }}>
+                    {gallery.map((item, idx) => (
+                        <div key={item.id} className="position-relative flex-shrink-0 rounded overflow-hidden border border-secondary" style={{ width: 60, height: 60 }}>
+                            <Button
+                                variant="danger"
+                                size="sm"
+                                className="position-absolute top-0 end-0 p-0 m-1 rounded-circle d-flex align-items-center justify-content-center"
+                                style={{ width: 16, height: 16, zIndex: 5 }}
+                                onClick={() => removeMedia(idx)}
+                            >
+                                <X size={10} />
+                            </Button>
+                            {item.type === 'image' ? (
+                                <img src={item.url} className="w-100 h-100 object-fit-cover opacity-75" alt="preview" />
+                            ) : (
+                                <div className="w-100 h-100 bg-secondary d-flex align-items-center justify-content-center text-white position-relative">
+                                    <video src={item.url} className="position-absolute w-100 h-100 object-fit-cover opacity-50" />
+                                    <Video size={16} className="position-relative z-1" />
+                                </div>
+                            )}
+                        </div>
+                    ))}
+                </div>
 
                 <div className="d-flex align-items-center justify-content-center position-relative pt-2 pb-3">
 
