@@ -174,7 +174,7 @@ const resources = {
                 "empty_code": "請輸入試驗代碼。",
                 "invalid_code": "試驗代碼無效，請檢查後再試一次。",
                 "network_error": "網路連線發生錯誤，請稍後再試。",
-                "footer_note": "為確保資料安全，使用本系統需要有效的試驗代碼。"
+                "footer_note": "為確保安全，使用本系統需要有效的試驗代碼。"
             }
         }
     }
