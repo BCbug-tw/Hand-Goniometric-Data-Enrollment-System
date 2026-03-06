@@ -33,7 +33,8 @@ const resources = {
                 "guide_title": "Trial Guide",
                 "guide_placeholder": "A GIF animation for the trial guide will be placed here in the future.",
                 "back": "Back to Edit",
-                "next": "Confirm & Next"
+                "next": "Confirm & Next",
+                "expert_mode": "Expert Mode (Skip Guides)"
             },
             "camera": {
                 "title_left": "Left Hand",
@@ -47,13 +48,13 @@ const resources = {
                 "error_support": "Recording is not supported in this browser."
             },
             "flow": {
-                "left_thumb_title": "Left Thumb Extension",
+                "left_thumb_title": "Left Thumb",
                 "left_thumb_desc": "Please fully extend the left thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "left_full_title": "Left Full Extension",
+                "left_full_title": "Left Full",
                 "left_full_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
-                "right_thumb_title": "Right Thumb Extension",
+                "right_thumb_title": "Right Thumb",
                 "right_thumb_desc": "Please fully extend the right thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "right_full_title": "Right Full Extension",
+                "right_full_title": "Right Full",
                 "right_full_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
             },
             "guide": {
@@ -144,7 +145,8 @@ const resources = {
                 "guide_title": "試驗指引預留區",
                 "guide_placeholder": "未來將在此處放置拍攝指引 GIF 動畫。",
                 "back": "返回修改",
-                "next": "確認並進行拍攝"
+                "next": "確認並進行拍攝",
+                "expert_mode": "研究人員收案模式 (跳過所有指引圖示)"
             },
             "camera": {
                 "title_left": "拍攝：左手",

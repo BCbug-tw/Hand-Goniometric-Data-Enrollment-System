@@ -4,7 +4,7 @@ import PoseGuide from './PoseGuide';
 import CameraCapture from './CameraCapture';
 import PosePreviewMatrix from './PosePreviewMatrix';
 
-export default function CaptureFlowManager({ onComplete, onBack }) {
+export default function CaptureFlowManager({ isExpertMode, onComplete, onBack }) {
     const { t } = useTranslation();
 
     // Internal steps:
@@ -17,7 +17,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
     // 7: Guide Right Full
     // 8: Camera Right Full
     // 9: Matrix Preview
-    const [internalStep, setInternalStep] = useState(1);
+    const [internalStep, setInternalStep] = useState(isExpertMode ? 2 : 1);
     const [isRetakeMode, setIsRetakeMode] = useState(false); // Tracks if we jumped from step 9
 
     // Store all captured media categorized by pose
@@ -28,12 +28,15 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
         rightFull: []
     });
 
-    const goNext = () => setInternalStep(prev => prev + 1);
+    const goNext = () => {
+        setInternalStep(prev => isExpertMode ? prev + 2 : prev + 1);
+    };
+
     const goBack = () => {
-        if (internalStep === 1) {
+        if (internalStep === 1 || (isExpertMode && internalStep === 2)) {
             onBack();
         } else {
-            setInternalStep(prev => prev - 1);
+            setInternalStep(prev => isExpertMode ? prev - 2 : prev - 1);
         }
     };
 
@@ -54,7 +57,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
         } else if (poseKey === 'rightFull') {
             setInternalStep(9);
         } else {
-            setInternalStep(prev => prev + 1);
+            setInternalStep(prev => isExpertMode ? prev + 2 : prev + 1);
         }
     };
 
@@ -129,7 +132,10 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
                     media={capturedMedia}
                     onRetake={jumpToCamera}
                     onConfirm={() => onComplete(capturedMedia)}
-                    onBack={() => jumpToCamera(8)}
+                    onBack={() => {
+                        jumpToCamera(8);
+                        setIsRetakeMode(false);
+                    }}
                 />;
             default:
                 return null;

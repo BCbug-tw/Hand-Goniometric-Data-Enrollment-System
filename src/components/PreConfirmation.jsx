@@ -1,9 +1,9 @@
 import React from 'react';
-import { Card, Button, Row, Col } from 'react-bootstrap';
-import { ArrowLeft, ArrowRight, Video } from 'lucide-react';
+import { Card, Button, Row, Col, Form } from 'react-bootstrap';
+import { ArrowLeft, ArrowRight, Video, Zap } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-export default function PreConfirmation({ data, onNext, onBack }) {
+export default function PreConfirmation({ data, isExpertMode, setIsExpertMode, onNext, onBack }) {
     const { t } = useTranslation();
 
     return (
@@ -49,7 +49,7 @@ export default function PreConfirmation({ data, onNext, onBack }) {
                 </Card.Body>
             </Card>
 
-            <div className="d-flex gap-3 mt-4">
+            <div className="d-flex gap-3 mt-4 mb-3">
                 <Button
                     variant="outline-secondary"
                     size="lg"
@@ -66,6 +66,18 @@ export default function PreConfirmation({ data, onNext, onBack }) {
                 >
                     {t('pre_confirmation.next')} <ArrowRight size={20} />
                 </Button>
+            </div>
+
+            <div className="d-flex align-items-center justify-content-center gap-2 mt-4 text-muted bg-light p-3 rounded-4 border">
+                <Zap size={18} className={isExpertMode ? "text-warning" : ""} />
+                <span className="fw-medium small">{t('pre_confirmation.expert_mode')}</span>
+                <Form.Check
+                    type="switch"
+                    id="expert-mode-switch"
+                    checked={isExpertMode}
+                    onChange={(e) => setIsExpertMode(e.target.checked)}
+                    className="mb-0 ms-2"
+                />
             </div>
         </div>
     );

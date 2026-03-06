@@ -18,6 +18,7 @@ export default function App() {
     patient_id: '',
     enrollmentDate: new Date().toISOString().split('T')[0],
   });
+  const [isExpertMode, setIsExpertMode] = useState(false);
 
   const [capturedMedia, setCapturedMedia] = useState({
     leftThumb: [],
@@ -99,12 +100,15 @@ export default function App() {
                 {currentStep === 2 && (
                   <PreConfirmation
                     data={patientData}
+                    isExpertMode={isExpertMode}
+                    setIsExpertMode={setIsExpertMode}
                     onNext={nextStep}
                     onBack={prevStep}
                   />
                 )}
                 {currentStep === 3 && (
                   <CaptureFlowManager
+                    isExpertMode={isExpertMode}
                     onComplete={(media) => {
                       setCapturedMedia(media);
                       nextStep();
