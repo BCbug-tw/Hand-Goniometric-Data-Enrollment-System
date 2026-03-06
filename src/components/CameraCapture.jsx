@@ -271,34 +271,34 @@ export default function CameraCapture({ title, side, onCapture, onBack }) {
                             <button
                                 onClick={takePhoto}
                                 disabled={!!error}
-                                className="rounded-circle border border-4 border-white d-flex align-items-center justify-content-center bg-transparent capture-btn"
+                                className="rounded-circle border border-4 border-white d-flex align-items-center justify-content-center bg-transparent capture-btn p-0"
                                 style={{ width: 72, height: 72, transition: 'transform 0.1s' }}
                                 onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
                                 onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
                             >
-                                <div className="bg-white rounded-circle" style={{ width: 56, height: 56 }} />
+                                <div className="bg-white rounded-circle flex-shrink-0" style={{ width: 56, height: 56 }} />
                             </button>
                         ) : (
                             isRecording ? (
                                 <button
                                     onClick={stopRecording}
-                                    className="rounded-circle border border-4 border-danger d-flex align-items-center justify-content-center bg-transparent capture-btn"
+                                    className="rounded-circle border border-4 border-danger d-flex align-items-center justify-content-center bg-transparent capture-btn p-0"
                                     style={{ width: 72, height: 72, transition: 'transform 0.1s' }}
                                     onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
                                     onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
                                 >
-                                    <div className="bg-danger rounded" style={{ width: 28, height: 28 }} />
+                                    <div className="bg-danger rounded flex-shrink-0" style={{ width: 28, height: 28 }} />
                                 </button>
                             ) : (
                                 <button
                                     onClick={startRecording}
                                     disabled={!!error}
-                                    className="rounded-circle border border-4 border-danger d-flex align-items-center justify-content-center bg-transparent capture-btn"
+                                    className="rounded-circle border border-4 border-danger d-flex align-items-center justify-content-center bg-transparent capture-btn p-0"
                                     style={{ width: 72, height: 72, transition: 'transform 0.1s' }}
                                     onMouseDown={e => e.currentTarget.style.transform = 'scale(0.95)'}
                                     onMouseUp={e => e.currentTarget.style.transform = 'scale(1)'}
                                 >
-                                    <div className="bg-danger rounded-circle" style={{ width: 56, height: 56 }} />
+                                    <div className="bg-danger rounded-circle flex-shrink-0" style={{ width: 56, height: 56 }} />
                                 </button>
                             )
                         )}
