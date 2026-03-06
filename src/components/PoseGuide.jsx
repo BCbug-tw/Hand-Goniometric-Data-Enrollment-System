@@ -25,7 +25,7 @@ export default function PoseGuide({ title, instructions, imagePath, onNext, onBa
             <Container className="flex-grow-1 d-flex flex-column justify-content-center py-4 px-3 max-w-md mx-auto" style={{ maxWidth: '600px' }}>
                 <Card className="border-0 shadow-sm mb-4 rounded-4 overflow-hidden text-center">
                     {imagePath ? (
-                        <div className="bg-dark d-flex align-items-center justify-content-center" style={{ height: '300px' }}>
+                        <div className="bg-white d-flex align-items-center justify-content-center" style={{ height: '300px' }}>
                             <img src={imagePath} alt="Pose Guide" className="w-100 h-100 object-fit-contain" />
                         </div>
                     ) : (

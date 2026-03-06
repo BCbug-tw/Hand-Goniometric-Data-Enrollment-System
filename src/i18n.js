@@ -158,13 +158,13 @@ const resources = {
                 "error_support": "此瀏覽器不支援錄影功能。"
             },
             "flow": {
-                "left_thumb_title": "左手拇指伸展 (Thumb Extension)",
+                "left_thumb_title": "左手拇指伸展",
                 "left_thumb_desc": "請將左手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "left_full_title": "左手完全伸展 (Full Extension)",
+                "left_full_title": "左手四指伸展",
                 "left_full_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
-                "right_thumb_title": "右手拇指伸展 (Thumb Extension)",
+                "right_thumb_title": "右手拇指伸展",
                 "right_thumb_desc": "請將右手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "right_full_title": "右手完全伸展 (Full Extension)",
+                "right_full_title": "右手四指伸展",
                 "right_full_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
             },
             "guide": {
