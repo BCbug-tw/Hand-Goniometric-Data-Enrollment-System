@@ -176,7 +176,7 @@ const resources = {
                 "start_capture": "我了解了，開始拍攝"
             },
             "matrix": {
-                "title": "影像擷取預覽",
+                "title": "影像預覽",
                 "subtitle": "請確認所有手部姿態影像是否正確。",
                 "edit": "重新拍攝 / 編輯",
                 "add": "新增影像",
