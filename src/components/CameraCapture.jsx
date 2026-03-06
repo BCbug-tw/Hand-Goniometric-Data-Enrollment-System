@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
-import { Camera, Video, ArrowLeft, RotateCcw, X, ArrowRight } from 'lucide-react';
+import { Camera, Video, ArrowLeft, RotateCcw, X, ArrowRight, Upload } from 'lucide-react';
 import { Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
@@ -16,8 +16,20 @@ export default function CameraCapture({ title, side, onCapture, onBack }) {
     const mediaRecorderRef = useRef(null);
     const chunksRef = useRef([]);
     const timerRef = useRef(null);
+    const fileInputRef = useRef(null);
 
     const MAX_RECORDING_SECONDS = 15;
+
+    const handleFileUpload = (e) => {
+        const file = e.target.files[0];
+        if (!file) return;
+
+        const type = file.type.startsWith('video/') ? 'video' : 'image';
+        const url = URL.createObjectURL(file);
+        setGallery(prev => [...prev, { type, blob: file, url, side, id: Date.now() }]);
+
+        e.target.value = '';
+    };
 
     const startCamera = async () => {
         try {
@@ -291,6 +303,26 @@ export default function CameraCapture({ title, side, onCapture, onBack }) {
                             )
                         )}
                     </div>
+
+                    {/* Upload Button - Right aligned */}
+                    {!isRecording && (
+                        <div className="position-absolute end-0 d-flex flex-column gap-2 pe-3">
+                            <input
+                                type="file"
+                                accept="image/*,video/*"
+                                ref={fileInputRef}
+                                onChange={handleFileUpload}
+                                className="d-none"
+                            />
+                            <Button
+                                variant="dark"
+                                className="rounded-circle d-flex align-items-center justify-content-center p-3 border-secondary"
+                                onClick={() => fileInputRef.current?.click()}
+                            >
+                                <Upload size={24} />
+                            </Button>
+                        </div>
+                    )}
                 </div>
             </div>
         </div>
