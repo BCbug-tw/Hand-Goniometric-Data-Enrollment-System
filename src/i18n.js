@@ -16,7 +16,7 @@ const resources = {
             },
             "patient_form": {
                 "title": "Patient Information",
-                "subtitle": "Please enter the baseline information to begin the capture process.",
+                "subtitle": "Please enter the baseline information to begin the process.",
                 "name": "Name",
                 "name_placeholder": "Enter patient name",
                 "patient_id": "Medical Record No.",
@@ -26,14 +26,14 @@ const resources = {
             },
             "pre_confirmation": {
                 "title": "Confirm Patient Information",
-                "subtitle": "Please verify the details below before proceeding to capture.",
+                "subtitle": "Please verify the details below before starting.",
                 "name": "Name",
                 "patient_id": "Medical Record No.",
                 "enrollment_date": "Enrollment Date",
                 "guide_title": "Trial Guide",
-                "guide_placeholder": "A GIF animation for the trial guide will be placed here in the future.",
+                "guide_placeholder": "An animation for the trial guide will be placed here in the future.",
                 "back": "Back to Edit",
-                "next": "Confirm & Next",
+                "next": "Confirm & Start",
                 "expert_mode": "Expert Mode (Skip Guides)"
             },
             "camera": {
@@ -128,7 +128,7 @@ const resources = {
             },
             "patient_form": {
                 "title": "病患資訊",
-                "subtitle": "請輸入基本資料以開始拍攝流程。",
+                "subtitle": "請輸入基本資料以開始流程。",
                 "name": "姓名",
                 "name_placeholder": "輸入姓名",
                 "patient_id": "病歷號",
@@ -138,15 +138,15 @@ const resources = {
             },
             "pre_confirmation": {
                 "title": "確認病患資訊",
-                "subtitle": "請在進行拍攝前，確認下列資訊是否正確。",
+                "subtitle": "請在開始前，確認下列資訊是否正確。",
                 "name": "姓名",
                 "patient_id": "病歷號",
                 "enrollment_date": "收案日期",
                 "guide_title": "試驗指引預留區",
-                "guide_placeholder": "未來將在此處放置拍攝指引 GIF 動畫。",
+                "guide_placeholder": "未來將在此處放置拍攝指引動畫。",
                 "back": "返回修改",
-                "next": "確認並進行拍攝",
-                "expert_mode": "研究人員收案模式 (跳過所有指引圖示)"
+                "next": "確認並開始",
+                "expert_mode": "研究人員收案模式 (跳過指引)"
             },
             "camera": {
                 "title_left": "拍攝：左手",
@@ -177,7 +177,7 @@ const resources = {
             },
             "matrix": {
                 "title": "影像擷取預覽",
-                "subtitle": "進入下一步前，請確認所有手部姿態影像是否正確。",
+                "subtitle": "請確認所有手部姿態影像是否正確。",
                 "edit": "重新拍攝 / 編輯",
                 "add": "新增影像",
                 "no_media": "尚未拍攝",

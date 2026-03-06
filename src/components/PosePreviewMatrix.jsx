@@ -101,7 +101,7 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
                     <Button
                         variant="primary"
                         size="lg"
-                        className="w-100 rounded-pill py-3 fw-bold shadow d-flex align-items-center justify-content-center gap-2"
+                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                         onClick={onConfirm}
                     >
                         {t('matrix.confirm_proceed')} <ArrowRight size={20} />

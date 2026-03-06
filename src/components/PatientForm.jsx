@@ -91,7 +91,7 @@ export default function PatientForm({ data, setData, onNext }) {
                     variant="primary"
                     type="submit"
                     size="lg"
-                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3"
+                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                     disabled={!isFormValid}
                 >
                     {t('patient_form.next')} <ArrowRight size={20} />

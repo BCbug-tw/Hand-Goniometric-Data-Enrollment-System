@@ -40,8 +40,8 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
     return (
         <div className="p-4 p-md-5">
             <div className="d-flex align-items-center mb-4 gap-3">
-                <Button variant="light" className="rounded-circle p-2 shadow-sm" onClick={onBack}>
-                    <ArrowLeft size={20} />
+                <Button variant="light" className="rounded-circle d-flex align-items-center justify-content-center p-2 border-0 shadow-sm" onClick={onBack}>
+                    <ArrowLeft size={24} />
                 </Button>
                 <div>
                     <h3 className="mb-1 fw-bold">{t('measurements.title')}</h3>
@@ -116,7 +116,7 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                     variant="primary"
                     type="submit"
                     size="lg"
-                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 shadow-sm transition-all"
+                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                 >
                     {t('measurements.review')} <ArrowRight size={20} />
                 </Button>

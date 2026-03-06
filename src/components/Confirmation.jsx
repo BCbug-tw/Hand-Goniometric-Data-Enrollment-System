@@ -208,7 +208,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                         count: capturedMedia.leftThumb.length + capturedMedia.leftFull.length + capturedMedia.rightThumb.length + capturedMedia.rightFull.length
                     })}
                 </p>
-                <Button onClick={onComplete} variant="primary" size="lg" className="w-100 rounded-pill shadow-sm">
+                <Button onClick={onComplete} variant="primary" size="lg" className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all">
                     {t('confirmation.capture_another')}
                 </Button>
             </div>
@@ -218,8 +218,8 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
     return (
         <div className="p-4 p-md-5">
             <div className="d-flex align-items-center mb-4 gap-3">
-                <Button variant="light" className="rounded-circle p-2 shadow-sm" onClick={onBack} disabled={uploadStatus === 'uploading'}>
-                    <ArrowLeft size={20} />
+                <Button variant="light" className="rounded-circle d-flex align-items-center justify-content-center p-2 border-0 shadow-sm" onClick={onBack} disabled={uploadStatus === 'uploading'}>
+                    <ArrowLeft size={24} />
                 </Button>
                 <h3 className="mb-0 fw-bold">{t('confirmation.title')}</h3>
             </div>
@@ -318,7 +318,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                         variant={downloadStatus === 'error' ? 'danger' : (downloadStatus === 'success' ? 'success' : 'outline-primary')}
                         size="lg"
                         disabled={downloadStatus === 'zipping'}
-                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 transition-all fw-medium border-2"
+                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold transition-all border-2"
                     >
                         {downloadStatus === 'zipping' ? (
                             <><RefreshCw size={20} className="spin" /> {t('confirmation.zipping')}</>
@@ -346,7 +346,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                             onClick={handleUpload}
                             variant={uploadStatus === 'error' ? 'danger' : 'primary'}
                             size="lg"
-                            className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 shadow-sm transition-all fw-medium"
+                            className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                         >
                             {uploadStatus === 'error' ? (
                                 <><RefreshCw size={20} /> {t('confirmation.retry')}</>

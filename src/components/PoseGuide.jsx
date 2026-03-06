@@ -51,7 +51,7 @@ export default function PoseGuide({ title, instructions, imagePath, onNext, onBa
                     <Button
                         variant="primary"
                         size="lg"
-                        className="w-100 rounded-pill py-3 fw-bold shadow-sm d-flex align-items-center justify-content-center gap-2"
+                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                         onClick={onNext}
                     >
                         <Camera size={20} />

@@ -107,7 +107,7 @@ export default function VerificationScreen({ onVerifySuccess }) {
                                         type="submit"
                                         variant="primary"
                                         size="lg"
-                                        className="w-100 rounded-pill py-3 fw-bold d-flex align-items-center justify-content-center gap-2 shadow-sm transition-all"
+                                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
                                         disabled={isVerifying}
                                     >
                                         {isVerifying ? (
