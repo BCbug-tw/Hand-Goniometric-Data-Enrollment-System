@@ -76,6 +76,17 @@ const resources = {
                 "zipping": "Preparing ZIP...",
                 "zip_success": "Downloaded",
                 "zip_error": "Failed to create ZIP"
+            },
+            "verification": {
+                "subtitle": "Please enter your trial code to access the system",
+                "code_label": "Trial Code",
+                "code_placeholder": "Enter code (e.g., HGDES-1234)",
+                "submit": "Verify & Enter",
+                "verifying": "Verifying...",
+                "empty_code": "Please enter a trial code.",
+                "invalid_code": "Invalid trial code. Please check and try again.",
+                "network_error": "Network error during verification. Please try again later.",
+                "footer_note": "A valid trial code is required to use this application securely."
             }
         }
     },
@@ -153,6 +164,17 @@ const resources = {
                 "zipping": "正在打包中...",
                 "zip_success": "下載完成",
                 "zip_error": "打包失敗"
+            },
+            "verification": {
+                "subtitle": "請輸入您的試驗代碼以進入系統",
+                "code_label": "試驗代碼 (Trial Code)",
+                "code_placeholder": "輸入代碼 (例如：HGDES-1234)",
+                "submit": "驗證並進入",
+                "verifying": "驗證中...",
+                "empty_code": "請輸入試驗代碼。",
+                "invalid_code": "試驗代碼無效，請檢查後再試一次。",
+                "network_error": "網路連線發生錯誤，請稍後再試。",
+                "footer_note": "為確保資料安全，使用本系統需要有效的試驗代碼。"
             }
         }
     }

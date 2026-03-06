@@ -5,10 +5,12 @@ import PreConfirmation from './components/PreConfirmation';
 import CameraCapture from './components/CameraCapture';
 import MeasurementForm from './components/MeasurementForm';
 import Confirmation from './components/Confirmation';
+import VerificationScreen from './components/VerificationScreen';
 import { useTranslation } from 'react-i18next';
 
 export default function App() {
   const { t, i18n } = useTranslation();
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [currentStep, setCurrentStep] = useState(1);
   const [patientData, setPatientData] = useState({
     name: '',
@@ -40,6 +42,10 @@ export default function App() {
     const newLang = i18n.language === 'en' ? 'zh-TW' : 'en';
     i18n.changeLanguage(newLang);
   };
+
+  if (!isAuthenticated) {
+    return <VerificationScreen onVerifySuccess={() => setIsAuthenticated(true)} />;
+  }
 
   return (
     <div className="bg-light min-vh-100">
