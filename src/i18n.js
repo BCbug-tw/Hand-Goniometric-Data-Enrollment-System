@@ -122,7 +122,7 @@ const resources = {
             "stepper": {
                 "info": "資訊",
                 "pre_confirm": "確認資訊",
-                "capture": "影像擷取",
+                "capture": "影像拍攝",
                 "measurements": "量測",
                 "confirm": "確認"
             },
