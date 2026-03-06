@@ -48,13 +48,13 @@ const resources = {
             },
             "flow": {
                 "left_thumb_title": "Left Thumb Extension",
-                "left_thumb_desc": "Please extend the left thumb fully while keeping other fingers relaxed. Ensure the camera captures the entire thumb joint.",
+                "left_thumb_desc": "Please fully extend the left thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
                 "left_full_title": "Left Full Extension",
-                "left_full_desc": "Please fully extend all fingers of the left hand. Keep the hand flat and fingers separated.",
+                "left_full_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
                 "right_thumb_title": "Right Thumb Extension",
-                "right_thumb_desc": "Please extend the right thumb fully while keeping other fingers relaxed. Ensure the camera captures the entire thumb joint.",
+                "right_thumb_desc": "Please fully extend the right thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
                 "right_full_title": "Right Full Extension",
-                "right_full_desc": "Please fully extend all fingers of the right hand. Keep the hand flat and fingers separated."
+                "right_full_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
             },
             "guide": {
                 "title": "Instruction",
@@ -63,7 +63,7 @@ const resources = {
                 "start_capture": "I understand, start capture"
             },
             "matrix": {
-                "title": "4-Pose Verification Matrix",
+                "title": "Image Capture Preview",
                 "subtitle": "Please review all captured poses before proceeding.",
                 "edit": "Retake",
                 "add": "Add Media",
@@ -159,13 +159,13 @@ const resources = {
             },
             "flow": {
                 "left_thumb_title": "左手拇指伸展 (Thumb Extension)",
-                "left_thumb_desc": "請將左手拇指完全伸展，其餘手指保持放鬆。確保相機完整拍攝到拇指關節。",
+                "left_thumb_desc": "請將左手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
                 "left_full_title": "左手完全伸展 (Full Extension)",
-                "left_full_desc": "請將左手所有手指完全伸展，手掌攤平且手指自然分開。",
+                "left_full_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
                 "right_thumb_title": "右手拇指伸展 (Thumb Extension)",
-                "right_thumb_desc": "請將右手拇指完全伸展，其餘手指保持放鬆。確保相機完整拍攝到拇指關節。",
+                "right_thumb_desc": "請將右手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
                 "right_full_title": "右手完全伸展 (Full Extension)",
-                "right_full_desc": "請將右手所有手指完全伸展，手掌攤平且手指自然分開。"
+                "right_full_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
             },
             "guide": {
                 "title": "動作指引",
@@ -174,7 +174,7 @@ const resources = {
                 "start_capture": "我了解了，開始拍攝"
             },
             "matrix": {
-                "title": "四姿態擷取預覽",
+                "title": "影像擷取預覽",
                 "subtitle": "進入下一步前，請確認所有手部姿態影像是否正確。",
                 "edit": "重新拍攝 / 編輯",
                 "add": "新增影像",

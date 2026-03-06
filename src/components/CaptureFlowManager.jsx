@@ -18,6 +18,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
     // 8: Camera Right Full
     // 9: Matrix Preview
     const [internalStep, setInternalStep] = useState(1);
+    const [isRetakeMode, setIsRetakeMode] = useState(false); // Tracks if we jumped from step 9
 
     // Store all captured media categorized by pose
     const [capturedMedia, setCapturedMedia] = useState({
@@ -37,6 +38,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
     };
 
     const jumpToCamera = (stepNumber) => {
+        setIsRetakeMode(true);
         setInternalStep(stepNumber);
     };
 
@@ -46,15 +48,10 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
             [poseKey]: mediaArray
         }));
 
-        // If we are coming from the Preview Matrix (step 9) to do a retake/add more,
-        // we should jump back to the Matrix after capture rather than the next guide.
-        // However, standard flow just goes +1.
-        // For simplicity, we detect if the current media array implies we were doing a "Retake"
-        // To be safe, we'll just go +1 in standard flow, but if we came from step 9, we need a better state tracker.
-
-        // Simple heuristic: if we already have media in the the *next* step's category, 
-        // or we are at the end, jump to 9.
-        if (poseKey === 'rightFull') {
+        if (isRetakeMode) {
+            setIsRetakeMode(false);
+            setInternalStep(9);
+        } else if (poseKey === 'rightFull') {
             setInternalStep(9);
         } else {
             setInternalStep(prev => prev + 1);
@@ -67,7 +64,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
                 return <PoseGuide
                     title={t('flow.left_thumb_title')}
                     instructions={t('flow.left_thumb_desc')}
-                    imagePath="/left_thumb.jpg"
+                    imagePath={`${import.meta.env.BASE_URL}left_thumb.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
@@ -83,7 +80,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
                 return <PoseGuide
                     title={t('flow.left_full_title')}
                     instructions={t('flow.left_full_desc')}
-                    imagePath="/left_full.jpg"
+                    imagePath={`${import.meta.env.BASE_URL}left_full.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
@@ -99,7 +96,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
                 return <PoseGuide
                     title={t('flow.right_thumb_title')}
                     instructions={t('flow.right_thumb_desc')}
-                    imagePath="/right_thumb.jpg"
+                    imagePath={`${import.meta.env.BASE_URL}right_thumb.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
@@ -115,7 +112,7 @@ export default function CaptureFlowManager({ onComplete, onBack }) {
                 return <PoseGuide
                     title={t('flow.right_full_title')}
                     instructions={t('flow.right_full_desc')}
-                    imagePath="/right_full.jpg"
+                    imagePath={`${import.meta.env.BASE_URL}right_full.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
