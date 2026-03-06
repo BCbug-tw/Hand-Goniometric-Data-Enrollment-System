@@ -30,7 +30,7 @@ export default function VerificationScreen({ onVerifySuccess }) {
             const response = await axios.post(API_URL, formData);
 
             if (response.data.status === 'success') {
-                onVerifySuccess();
+                onVerifySuccess(code.trim());
             } else {
                 setError(t('verification.invalid_code'));
             }

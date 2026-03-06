@@ -11,6 +11,7 @@ import { useTranslation } from 'react-i18next';
 export default function App() {
   const { t, i18n } = useTranslation();
   const [isAuthenticated, setIsAuthenticated] = useState(false);
+  const [trialCode, setTrialCode] = useState(''); // Store the verified trial code
   const [currentStep, setCurrentStep] = useState(1);
   const [patientData, setPatientData] = useState({
     name: '',
@@ -43,8 +44,13 @@ export default function App() {
     i18n.changeLanguage(newLang);
   };
 
+  const handleVerifySuccess = (code) => {
+    setTrialCode(code);
+    setIsAuthenticated(true);
+  };
+
   if (!isAuthenticated) {
-    return <VerificationScreen onVerifySuccess={() => setIsAuthenticated(true)} />;
+    return <VerificationScreen onVerifySuccess={handleVerifySuccess} />;
   }
 
   return (
@@ -127,6 +133,7 @@ export default function App() {
                 {currentStep === 6 && (
                   <Confirmation
                     patientData={patientData}
+                    trialCode={trialCode}
                     leftMedia={leftHandMedia}
                     rightMedia={rightHandMedia}
                     measurements={measurements}

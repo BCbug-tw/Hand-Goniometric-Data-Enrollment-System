@@ -5,7 +5,7 @@ import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import JSZip from 'jszip';
 
-export default function Confirmation({ patientData, leftMedia, rightMedia, measurements, onBack, onComplete }) {
+export default function Confirmation({ patientData, trialCode, leftMedia, rightMedia, measurements, onBack, onComplete }) {
     const { t } = useTranslation();
     const [uploadStatus, setUploadStatus] = useState('idle'); // 'idle' | 'uploading' | 'success' | 'error'
     const [progress, setProgress] = useState(0);
@@ -30,7 +30,7 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                 'Pinky_MCP', 'Pinky_PIP', 'Pinky_DIP'
             ];
 
-            const headers = ['Name', 'Patient ID', 'Enrollment Date', 'Exported At'];
+            const headers = ['Name', 'Patient ID', 'Enrollment Date', 'Exported At', 'Trial Code'];
             joints.forEach(j => headers.push(`Left_${j}`));
             joints.forEach(j => headers.push(`Right_${j}`));
 
@@ -38,7 +38,8 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                 `"${patientData.name || ''}"`,
                 `"${patientData.patient_id || ''}"`,
                 `"${patientData.enrollmentDate || ''}"`,
-                `"${new Date().toISOString()}"`
+                `"${new Date().toISOString()}"`,
+                `"${trialCode || ''}"`
             ];
 
             joints.forEach(j => row.push(`"${measurements?.left?.[j] || ''}"`));
@@ -111,14 +112,15 @@ export default function Confirmation({ patientData, leftMedia, rightMedia, measu
                 'Ring_MCP', 'Ring_PIP', 'Ring_DIP',
                 'Pinky_MCP', 'Pinky_PIP', 'Pinky_DIP'
             ];
-            const headers = ['Name', 'Patient ID', 'Enrollment Date', 'Exported At'];
+            const headers = ['Name', 'Patient ID', 'Enrollment Date', 'Exported At', 'Trial Code'];
             joints.forEach(j => headers.push(`Left_${j}`));
             joints.forEach(j => headers.push(`Right_${j}`));
             const row = [
                 `"${patientData.name || ''}"`,
                 `"${patientData.patient_id || ''}"`,
                 `"${patientData.enrollmentDate || ''}"`,
-                `"${new Date().toISOString()}"`
+                `"${new Date().toISOString()}"`,
+                `"${trialCode || ''}"`
             ];
             joints.forEach(j => row.push(`"${measurements?.left?.[j] || ''}"`));
             joints.forEach(j => row.push(`"${measurements?.right?.[j] || ''}"`));
