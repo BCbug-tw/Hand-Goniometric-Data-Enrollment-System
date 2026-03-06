@@ -168,7 +168,7 @@ const resources = {
             "verification": {
                 "subtitle": "請輸入您的試驗代碼以進入系統",
                 "code_label": "試驗代碼 (Trial Code)",
-                "code_placeholder": "輸入代碼 (例如：HGDES-1234)",
+                "code_placeholder": "輸入代碼",
                 "submit": "驗證並進入",
                 "verifying": "驗證中...",
                 "empty_code": "請輸入試驗代碼。",
