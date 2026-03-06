@@ -73,6 +73,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 2:
                 return <CameraCapture
+                    key="camera-leftThumb"
                     title={t('flow.left_thumb_title')}
                     side="leftThumb"
                     initialGallery={capturedMedia.leftThumb}
@@ -89,6 +90,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 4:
                 return <CameraCapture
+                    key="camera-leftFull"
                     title={t('flow.left_full_title')}
                     side="leftFull"
                     initialGallery={capturedMedia.leftFull}
@@ -105,6 +107,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 6:
                 return <CameraCapture
+                    key="camera-rightThumb"
                     title={t('flow.right_thumb_title')}
                     side="rightThumb"
                     initialGallery={capturedMedia.rightThumb}
@@ -121,6 +124,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 8:
                 return <CameraCapture
+                    key="camera-rightFull"
                     title={t('flow.right_full_title')}
                     side="rightFull"
                     initialGallery={capturedMedia.rightFull}
