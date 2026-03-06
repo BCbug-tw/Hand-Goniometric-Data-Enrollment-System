@@ -145,7 +145,7 @@ const resources = {
                 "guide_title": "試驗指引預留區",
                 "guide_placeholder": "未來將在此處放置拍攝指引動畫。",
                 "back": "返回修改",
-                "next": "確認並開始",
+                "next": "確認開始",
                 "expert_mode": "研究人員收案模式 (跳過指引)"
             },
             "camera": {
