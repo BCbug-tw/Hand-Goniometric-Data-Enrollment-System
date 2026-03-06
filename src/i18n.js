@@ -80,7 +80,7 @@ const resources = {
             "verification": {
                 "subtitle": "Please enter your trial code to access the system",
                 "code_label": "Trial Code",
-                "code_placeholder": "Enter code (e.g., HGDES-1234)",
+                "code_placeholder": "Enter code",
                 "submit": "Verify & Enter",
                 "verifying": "Verifying...",
                 "empty_code": "Please enter a trial code.",
