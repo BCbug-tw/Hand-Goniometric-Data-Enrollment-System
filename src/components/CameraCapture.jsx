@@ -316,10 +316,11 @@ export default function CameraCapture({ title, side, onCapture, onBack }) {
                             />
                             <Button
                                 variant="dark"
-                                className="rounded-circle d-flex align-items-center justify-content-center p-3 border-secondary"
+                                className="rounded-pill px-3 py-2 d-flex align-items-center gap-2 text-light opacity-75 border-secondary"
                                 onClick={() => fileInputRef.current?.click()}
+                                size="sm"
                             >
-                                <Upload size={24} />
+                                <Upload size={16} /> {t('camera.upload')}
                             </Button>
                         </div>
                     )}
