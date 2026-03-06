@@ -15,7 +15,7 @@ const resources = {
                 "confirm": "Check"
             },
             "patient_form": {
-                "title": "Patient Information",
+                "title": "Subject Information",
                 "subtitle": "Please enter the baseline information to begin the process.",
                 "name": "Name",
                 "name_placeholder": "Enter patient name",
@@ -25,7 +25,7 @@ const resources = {
                 "next": "Next Step"
             },
             "pre_confirmation": {
-                "title": "Confirm Patient Information",
+                "title": "Confirm Subject Information",
                 "subtitle": "Please verify the details below before starting.",
                 "name": "Name",
                 "patient_id": "Medical Record No.",
@@ -87,6 +87,7 @@ const resources = {
                 "left_hand": "Left Hand",
                 "right_hand": "Right Hand",
                 "measurements": "Measurements",
+                "downloaded_msg": "You have downloaded the ZIP file. You may upload to cloud as backup, or proceed to the next patient.",
                 "upload_failed": "Upload failed",
                 "uploading": "Uploading securely...",
                 "retry": "Retry Upload",
@@ -127,7 +128,7 @@ const resources = {
                 "confirm": "確認"
             },
             "patient_form": {
-                "title": "病患資訊",
+                "title": "受試者資訊",
                 "subtitle": "請輸入基本資料以開始流程。",
                 "name": "姓名",
                 "name_placeholder": "輸入姓名",
@@ -137,7 +138,7 @@ const resources = {
                 "next": "下一步"
             },
             "pre_confirmation": {
-                "title": "確認病患資訊",
+                "title": "確認受試者資訊",
                 "subtitle": "請在開始前，確認下列資訊是否正確。",
                 "name": "姓名",
                 "patient_id": "病歷號",
@@ -199,6 +200,7 @@ const resources = {
                 "left_hand": "左手",
                 "right_hand": "右手",
                 "measurements": "關節量測資料",
+                "downloaded_msg": "您已成功下載 ZIP 壓縮檔。您可以選擇上傳至雲端備份，或直接開始下一位病患收案。",
                 "upload_failed": "上傳失敗",
                 "uploading": "安全上傳中...",
                 "retry": "重試上傳",

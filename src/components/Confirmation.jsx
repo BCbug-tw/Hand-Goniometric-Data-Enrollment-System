@@ -11,6 +11,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
     const [progress, setProgress] = useState(0);
     const [errorMessage, setErrorMessage] = useState('');
     const [downloadStatus, setDownloadStatus] = useState('idle'); // 'idle' | 'zipping' | 'success' | 'error'
+    const [hasDownloaded, setHasDownloaded] = useState(false);
 
     const handleDownloadZip = async () => {
         if (!patientData.patient_id) return;
@@ -77,6 +78,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
             URL.revokeObjectURL(url);
 
             setDownloadStatus('success');
+            setHasDownloaded(true);
             setTimeout(() => setDownloadStatus('idle'), 3000);
         } catch (err) {
             console.error("ZIP Generation error:", err);
@@ -357,6 +359,17 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                     )}
                 </Col>
             </Row>
+
+            {hasDownloaded && (
+                <div className="mt-5 pt-4 border-top">
+                    <p className="text-muted text-center mb-3">
+                        <small>{t('confirmation.downloaded_msg') || 'You have downloaded the ZIP. You can now start a new patient enrollment or upload to the cloud.'}</small>
+                    </p>
+                    <Button onClick={onComplete} variant="outline-primary" size="lg" className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold transition-all border-2">
+                        {t('confirmation.capture_another')}
+                    </Button>
+                </div>
+            )}
         </div >
     );
 }
