@@ -10,8 +10,7 @@ const resources = {
             "stepper": {
                 "info": "Info",
                 "pre_confirm": "Confirm",
-                "left_hand": "LH",
-                "right_hand": "RH",
+                "capture": "Capture",
                 "measurements": "Goniometry",
                 "confirm": "Check"
             },
@@ -46,6 +45,30 @@ const resources = {
                 "retry": "Retry Camera",
                 "error_access": "Failed to access camera. Please ensure permissions are granted.",
                 "error_support": "Recording is not supported in this browser."
+            },
+            "flow": {
+                "left_thumb_title": "Left Thumb Extension",
+                "left_thumb_desc": "Please extend the left thumb fully while keeping other fingers relaxed. Ensure the camera captures the entire thumb joint.",
+                "left_full_title": "Left Full Extension",
+                "left_full_desc": "Please fully extend all fingers of the left hand. Keep the hand flat and fingers separated.",
+                "right_thumb_title": "Right Thumb Extension",
+                "right_thumb_desc": "Please extend the right thumb fully while keeping other fingers relaxed. Ensure the camera captures the entire thumb joint.",
+                "right_full_title": "Right Full Extension",
+                "right_full_desc": "Please fully extend all fingers of the right hand. Keep the hand flat and fingers separated."
+            },
+            "guide": {
+                "title": "Instruction",
+                "image_placeholder": "Guide Image Placeholder",
+                "instructions_title": "Pose Instructions",
+                "start_capture": "I understand, start capture"
+            },
+            "matrix": {
+                "title": "4-Pose Verification Matrix",
+                "subtitle": "Please review all captured poses before proceeding.",
+                "edit": "Retake",
+                "add": "Add Media",
+                "no_media": "No Captures Yet",
+                "confirm_proceed": "Confirm & Proceed to Measurements"
             },
             "measurements": {
                 "title": "Joint Goniometry",
@@ -98,8 +121,7 @@ const resources = {
             "stepper": {
                 "info": "資訊",
                 "pre_confirm": "確認資訊",
-                "left_hand": "左手",
-                "right_hand": "右手",
+                "capture": "影像擷取",
                 "measurements": "量測",
                 "confirm": "確認"
             },
@@ -134,6 +156,30 @@ const resources = {
                 "retry": "重試相機",
                 "error_access": "無法存取相機，請確認已授權權限。",
                 "error_support": "此瀏覽器不支援錄影功能。"
+            },
+            "flow": {
+                "left_thumb_title": "左手拇指伸展 (Thumb Extension)",
+                "left_thumb_desc": "請將左手拇指完全伸展，其餘手指保持放鬆。確保相機完整拍攝到拇指關節。",
+                "left_full_title": "左手完全伸展 (Full Extension)",
+                "left_full_desc": "請將左手所有手指完全伸展，手掌攤平且手指自然分開。",
+                "right_thumb_title": "右手拇指伸展 (Thumb Extension)",
+                "right_thumb_desc": "請將右手拇指完全伸展，其餘手指保持放鬆。確保相機完整拍攝到拇指關節。",
+                "right_full_title": "右手完全伸展 (Full Extension)",
+                "right_full_desc": "請將右手所有手指完全伸展，手掌攤平且手指自然分開。"
+            },
+            "guide": {
+                "title": "動作指引",
+                "image_placeholder": "示範圖片將放置於此",
+                "instructions_title": "動作說明",
+                "start_capture": "我了解了，開始拍攝"
+            },
+            "matrix": {
+                "title": "四姿態擷取預覽",
+                "subtitle": "進入下一步前，請確認所有手部姿態影像是否正確。",
+                "edit": "重新拍攝 / 編輯",
+                "add": "新增影像",
+                "no_media": "尚未拍攝",
+                "confirm_proceed": "確認並進入關節量測"
             },
             "measurements": {
                 "title": "關節量測",

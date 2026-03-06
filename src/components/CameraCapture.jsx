@@ -3,14 +3,14 @@ import { Camera, Video, ArrowLeft, RotateCcw, X, ArrowRight, Upload } from 'luci
 import { Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-export default function CameraCapture({ title, side, onCapture, onBack }) {
+export default function CameraCapture({ title, side, initialGallery = [], onCapture, onBack }) {
     const { t } = useTranslation();
     const [mode, setMode] = useState('photo'); // 'photo' | 'video'
     const [isRecording, setIsRecording] = useState(false);
     const [recordingTime, setRecordingTime] = useState(0);
     const [error, setError] = useState(null);
 
-    const [gallery, setGallery] = useState([]);
+    const [gallery, setGallery] = useState(initialGallery);
 
     const videoRef = useRef(null);
     const mediaRecorderRef = useRef(null);

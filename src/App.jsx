@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import PatientForm from './components/PatientForm';
 import PreConfirmation from './components/PreConfirmation';
-import CameraCapture from './components/CameraCapture';
+import CaptureFlowManager from './components/CaptureFlowManager';
 import MeasurementForm from './components/MeasurementForm';
 import Confirmation from './components/Confirmation';
 import VerificationScreen from './components/VerificationScreen';
@@ -19,8 +19,12 @@ export default function App() {
     enrollmentDate: new Date().toISOString().split('T')[0],
   });
 
-  const [leftHandMedia, setLeftHandMedia] = useState([]); // Array of { type, blob, url }
-  const [rightHandMedia, setRightHandMedia] = useState([]);
+  const [capturedMedia, setCapturedMedia] = useState({
+    leftThumb: [],
+    leftFull: [],
+    rightThumb: [],
+    rightFull: []
+  });
   const [measurements, setMeasurements] = useState({ left: {}, right: {} });
 
   const nextStep = () => setCurrentStep((prev) => prev + 1);
@@ -31,11 +35,11 @@ export default function App() {
     setPatientData({ name: '', patient_id: '', enrollmentDate: new Date().toISOString().split('T')[0] });
 
     // Revoke all object URLs to avoid memory leaks
-    leftHandMedia.forEach(m => URL.revokeObjectURL(m.url));
-    rightHandMedia.forEach(m => URL.revokeObjectURL(m.url));
+    Object.values(capturedMedia).forEach(array => {
+      array.forEach(m => URL.revokeObjectURL(m.url));
+    });
 
-    setLeftHandMedia([]);
-    setRightHandMedia([]);
+    setCapturedMedia({ leftThumb: [], leftFull: [], rightThumb: [], rightFull: [] });
     setMeasurements({ left: {}, right: {} });
   }
 
@@ -78,10 +82,9 @@ export default function App() {
             <div className="d-flex justify-content-between mb-4 px-3 text-muted small">
               <span className={currentStep >= 1 ? "text-primary fw-bold" : ""}>{t('stepper.info')}</span>
               <span className={currentStep >= 2 ? "text-primary fw-bold" : ""}>{t('stepper.pre_confirm')}</span>
-              <span className={currentStep >= 3 ? "text-primary fw-bold" : ""}>{t('stepper.left_hand')}</span>
-              <span className={currentStep >= 4 ? "text-primary fw-bold" : ""}>{t('stepper.right_hand')}</span>
-              <span className={currentStep >= 5 ? "text-primary fw-bold" : ""}>{t('stepper.measurements')}</span>
-              <span className={currentStep >= 6 ? "text-primary fw-bold" : ""}>{t('stepper.confirm')}</span>
+              <span className={currentStep >= 3 ? "text-primary fw-bold" : ""}>{t('stepper.capture')}</span>
+              <span className={currentStep >= 4 ? "text-primary fw-bold" : ""}>{t('stepper.measurements')}</span>
+              <span className={currentStep >= 5 ? "text-primary fw-bold" : ""}>{t('stepper.confirm')}</span>
             </div>
 
             <Card className="shadow-sm border-0 rounded-4 overflow-hidden">
@@ -101,28 +104,15 @@ export default function App() {
                   />
                 )}
                 {currentStep === 3 && (
-                  <CameraCapture
-                    title={t('camera.title_left')}
-                    side="left"
-                    onCapture={(media) => {
-                      setLeftHandMedia(media);
+                  <CaptureFlowManager
+                    onComplete={(media) => {
+                      setCapturedMedia(media);
                       nextStep();
                     }}
                     onBack={prevStep}
                   />
                 )}
                 {currentStep === 4 && (
-                  <CameraCapture
-                    title={t('camera.title_right')}
-                    side="right"
-                    onCapture={(media) => {
-                      setRightHandMedia(media);
-                      nextStep();
-                    }}
-                    onBack={prevStep}
-                  />
-                )}
-                {currentStep === 5 && (
                   <MeasurementForm
                     data={measurements}
                     setData={setMeasurements}
@@ -130,12 +120,11 @@ export default function App() {
                     onBack={prevStep}
                   />
                 )}
-                {currentStep === 6 && (
+                {currentStep === 5 && (
                   <Confirmation
                     patientData={patientData}
                     trialCode={trialCode}
-                    leftMedia={leftHandMedia}
-                    rightMedia={rightHandMedia}
+                    capturedMedia={capturedMedia}
                     measurements={measurements}
                     onBack={prevStep}
                     onComplete={resetFlow}
