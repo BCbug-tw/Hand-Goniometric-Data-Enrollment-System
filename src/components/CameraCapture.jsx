@@ -21,12 +21,16 @@ export default function CameraCapture({ title, side, initialGallery = [], onCapt
     const MAX_RECORDING_SECONDS = 15;
 
     const handleFileUpload = (e) => {
-        const file = e.target.files[0];
-        if (!file) return;
+        const files = Array.from(e.target.files);
+        if (files.length === 0) return;
 
-        const type = file.type.startsWith('video/') ? 'video' : 'image';
-        const url = URL.createObjectURL(file);
-        setGallery(prev => [...prev, { type, blob: file, url, side, id: Date.now() }]);
+        const newMedia = files.map((file, index) => {
+            const type = file.type.startsWith('video/') ? 'video' : 'image';
+            const url = URL.createObjectURL(file);
+            return { type, blob: file, url, side, id: Date.now() + index };
+        });
+
+        setGallery(prev => [...prev, ...newMedia]);
 
         e.target.value = '';
     };
@@ -310,6 +314,7 @@ export default function CameraCapture({ title, side, initialGallery = [], onCapt
                             <input
                                 type="file"
                                 accept="image/*,video/*"
+                                multiple
                                 ref={fileInputRef}
                                 onChange={handleFileUpload}
                                 className="d-none"
