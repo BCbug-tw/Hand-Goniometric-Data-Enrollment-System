@@ -23,9 +23,9 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
     // Store all captured media categorized by pose
     const [capturedMedia, setCapturedMedia] = useState({
         leftThumb: [],
-        leftFull: [],
+        leftFour: [],
         rightThumb: [],
-        rightFull: []
+        rightFour: []
     });
 
     const goNext = () => {
@@ -54,7 +54,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
         if (isRetakeMode) {
             setIsRetakeMode(false);
             setInternalStep(9);
-        } else if (poseKey === 'rightFull') {
+        } else if (poseKey === 'rightFour') {
             setInternalStep(9);
         } else {
             setInternalStep(prev => isExpertMode ? prev + 2 : prev + 1);
@@ -82,19 +82,19 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 3:
                 return <PoseGuide
-                    title={t('flow.left_full_title')}
-                    instructions={t('flow.left_full_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}left_full.jpg`}
+                    title={t('flow.left_four_title')}
+                    instructions={t('flow.left_four_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}left_four.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 4:
                 return <CameraCapture
-                    key="camera-leftFull"
-                    title={t('flow.left_full_title')}
-                    side="leftFull"
-                    initialGallery={capturedMedia.leftFull}
-                    onCapture={(media) => handleCaptureComplete('leftFull', media)}
+                    key="camera-leftFour"
+                    title={t('flow.left_four_title')}
+                    side="leftFour"
+                    initialGallery={capturedMedia.leftFour}
+                    onCapture={(media) => handleCaptureComplete('leftFour', media)}
                     onBack={goBack}
                 />;
             case 5:
@@ -116,19 +116,19 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                 />;
             case 7:
                 return <PoseGuide
-                    title={t('flow.right_full_title')}
-                    instructions={t('flow.right_full_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}right_full.jpg`}
+                    title={t('flow.right_four_title')}
+                    instructions={t('flow.right_four_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}right_four.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 8:
                 return <CameraCapture
-                    key="camera-rightFull"
-                    title={t('flow.right_full_title')}
-                    side="rightFull"
-                    initialGallery={capturedMedia.rightFull}
-                    onCapture={(media) => handleCaptureComplete('rightFull', media)}
+                    key="camera-rightFour"
+                    title={t('flow.right_four_title')}
+                    side="rightFour"
+                    initialGallery={capturedMedia.rightFour}
+                    onCapture={(media) => handleCaptureComplete('rightFour', media)}
                     onBack={goBack}
                 />;
             case 9:

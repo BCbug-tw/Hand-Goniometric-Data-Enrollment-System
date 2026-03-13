@@ -50,12 +50,12 @@ const resources = {
             "flow": {
                 "left_thumb_title": "Left Thumb",
                 "left_thumb_desc": "Please fully extend the left thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "left_full_title": "Left Full",
-                "left_full_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
+                "left_four_title": "Left Four",
+                "left_four_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
                 "right_thumb_title": "Right Thumb",
                 "right_thumb_desc": "Please fully extend the right thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "right_full_title": "Right Full",
-                "right_full_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
+                "right_four_title": "Right Four",
+                "right_four_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
             },
             "guide": {
                 "title": "Instruction",
@@ -163,12 +163,12 @@ const resources = {
             "flow": {
                 "left_thumb_title": "左手拇指伸展",
                 "left_thumb_desc": "請將左手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "left_full_title": "左手四指伸展",
-                "left_full_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
+                "left_four_title": "左手四指伸展",
+                "left_four_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
                 "right_thumb_title": "右手拇指伸展",
                 "right_thumb_desc": "請將右手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "right_full_title": "右手四指伸展",
-                "right_full_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
+                "right_four_title": "右手四指伸展",
+                "right_four_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
             },
             "guide": {
                 "title": "動作指引",

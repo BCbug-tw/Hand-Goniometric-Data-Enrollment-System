@@ -54,18 +54,18 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
 
             folder.file("patient_data.csv", csvUint8Array);
 
-            const addMediaToFolder = (mediaArray, sidePrefix) => {
+            const addMediaToFolder = (mediaArray, hand, gesture) => {
                 mediaArray.forEach((media, index) => {
                     const ext = media.type === 'image' ? 'jpg' : 'webm';
-                    const filename = `${patientData.patient_id}_${sidePrefix}_${index}.${ext}`;
+                    const filename = `${patientData.patient_id}_${hand}_${gesture}_${index}.${ext}`;
                     folder.file(filename, media.blob);
                 });
             };
 
-            addMediaToFolder(capturedMedia.leftThumb, 'leftThumb');
-            addMediaToFolder(capturedMedia.leftFull, 'leftFull');
-            addMediaToFolder(capturedMedia.rightThumb, 'rightThumb');
-            addMediaToFolder(capturedMedia.rightFull, 'rightFull');
+            addMediaToFolder(capturedMedia.leftThumb, 'left', 'thumb');
+            addMediaToFolder(capturedMedia.leftFour, 'left', 'four');
+            addMediaToFolder(capturedMedia.rightThumb, 'right', 'thumb');
+            addMediaToFolder(capturedMedia.rightFour, 'right', 'four');
 
             const content = await zip.generateAsync({ type: "blob" });
             const url = URL.createObjectURL(content);
@@ -132,17 +132,17 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
             formData.append('csv_data', '\uFEFF' + csvString); // GAS can handle string with BOM directly
 
             // Convert and append Media
-            const appendMediaFiles = async (mediaArray, prefix) => {
+            const appendMediaFiles = async (mediaArray, hand, gesture) => {
                 for (let i = 0; i < mediaArray.length; i++) {
                     const base64 = await blobToBase64(mediaArray[i].blob);
-                    formData.append(`file_${prefix}_${i}`, base64);
+                    formData.append(`file_${hand}_${gesture}_${i}`, base64);
                 }
             };
 
-            await appendMediaFiles(capturedMedia.leftThumb, 'leftThumb');
-            await appendMediaFiles(capturedMedia.leftFull, 'leftFull');
-            await appendMediaFiles(capturedMedia.rightThumb, 'rightThumb');
-            await appendMediaFiles(capturedMedia.rightFull, 'rightFull');
+            await appendMediaFiles(capturedMedia.leftThumb, 'left', 'thumb');
+            await appendMediaFiles(capturedMedia.leftFour, 'left', 'four');
+            await appendMediaFiles(capturedMedia.rightThumb, 'right', 'thumb');
+            await appendMediaFiles(capturedMedia.rightFour, 'right', 'four');
 
             // Artificial progress for GAS since it doesn't give real-time upload progress for base64 well
             const progressInterval = setInterval(() => {
@@ -207,7 +207,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 <p className="text-muted mb-5">
                     {t('confirmation.complete_msg1')}<strong className="text-dark">{patientData.patient_id}</strong>{t('confirmation.complete_msg2')}
                     <br />{t('confirmation.uploaded_files', {
-                        count: capturedMedia.leftThumb.length + capturedMedia.leftFull.length + capturedMedia.rightThumb.length + capturedMedia.rightFull.length
+                        count: capturedMedia.leftThumb.length + capturedMedia.leftFour.length + capturedMedia.rightThumb.length + capturedMedia.rightFour.length
                     })}
                 </p>
                 <Button onClick={onComplete} variant="primary" size="lg" className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all">
@@ -246,13 +246,13 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                     {renderMediaGallery(capturedMedia.leftThumb, 'Left Thumb', 'flow.left_thumb_title')}
                 </Col>
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.leftFull, 'Left Full', 'flow.left_full_title')}
+                    {renderMediaGallery(capturedMedia.leftFour, 'Left Four', 'flow.left_four_title')}
                 </Col>
                 <Col xs={12} md={6}>
                     {renderMediaGallery(capturedMedia.rightThumb, 'Right Thumb', 'flow.right_thumb_title')}
                 </Col>
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.rightFull, 'Right Full', 'flow.right_full_title')}
+                    {renderMediaGallery(capturedMedia.rightFour, 'Right Four', 'flow.right_four_title')}
                 </Col>
             </Row>
 

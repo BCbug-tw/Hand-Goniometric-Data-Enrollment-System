@@ -7,13 +7,13 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
     const { t } = useTranslation();
 
     // Mapping pose keys to their respective step numbers in the FlowManager
-    // 2: Left Thumb, 4: Left Full, 6: Right Thumb, 8: Right Full
+    // 2: Left Thumb, 4: Left Four, 6: Right Thumb, 8: Right Four
     const getStepForPose = (poseKey) => {
         switch (poseKey) {
             case 'leftThumb': return 2;
-            case 'leftFull': return 4;
+            case 'leftFour': return 4;
             case 'rightThumb': return 6;
-            case 'rightFull': return 8;
+            case 'rightFour': return 8;
             default: return 2;
         }
     };
@@ -87,13 +87,13 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
                         {renderMediaBox('leftThumb', 'flow.left_thumb_title')}
                     </Col>
                     <Col xs={12} md={6}>
-                        {renderMediaBox('leftFull', 'flow.left_full_title')}
+                        {renderMediaBox('leftFour', 'flow.left_four_title')}
                     </Col>
                     <Col xs={12} md={6}>
                         {renderMediaBox('rightThumb', 'flow.right_thumb_title')}
                     </Col>
                     <Col xs={12} md={6}>
-                        {renderMediaBox('rightFull', 'flow.right_full_title')}
+                        {renderMediaBox('rightFour', 'flow.right_four_title')}
                     </Col>
                 </Row>
 
