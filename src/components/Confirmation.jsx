@@ -55,10 +55,17 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
             folder.file("patient_data.csv", csvUint8Array);
 
             const addMediaToFolder = (mediaArray, hand, gesture) => {
+                const videoFolder = folder.folder('video');
+                const imageFolder = folder.folder('images').folder(hand).folder(gesture);
+
                 mediaArray.forEach((media, index) => {
-                    const ext = media.type === 'image' ? 'jpg' : 'webm';
-                    const filename = `${patientData.patient_id}_${hand}_${gesture}_${index}.${ext}`;
-                    folder.file(filename, media.blob);
+                    if (media.type === 'image') {
+                        const filename = `${patientData.patient_id}_${hand}_${gesture}_${Date.now()}_${index}.jpg`;
+                        imageFolder.file(filename, media.blob);
+                    } else {
+                        const filename = `${patientData.patient_id}_${hand}_${gesture}.webm`;
+                        videoFolder.file(filename, media.blob);
+                    }
                 });
             };
 
