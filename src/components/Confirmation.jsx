@@ -69,9 +69,9 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 });
             };
 
-            addMediaToFolder(capturedMedia.leftThumb, 'left', 'thumb');
+            addMediaToFolder(capturedMedia.leftThumb, 'left', 'thumbup');
             addMediaToFolder(capturedMedia.leftFour, 'left', 'four');
-            addMediaToFolder(capturedMedia.rightThumb, 'right', 'thumb');
+            addMediaToFolder(capturedMedia.rightThumb, 'right', 'thumbup');
             addMediaToFolder(capturedMedia.rightFour, 'right', 'four');
 
             const content = await zip.generateAsync({ type: "blob" });
@@ -146,9 +146,9 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 }
             };
 
-            await appendMediaFiles(capturedMedia.leftThumb, 'left', 'thumb');
+            await appendMediaFiles(capturedMedia.leftThumb, 'left', 'thumbup');
             await appendMediaFiles(capturedMedia.leftFour, 'left', 'four');
-            await appendMediaFiles(capturedMedia.rightThumb, 'right', 'thumb');
+            await appendMediaFiles(capturedMedia.rightThumb, 'right', 'thumbup');
             await appendMediaFiles(capturedMedia.rightFour, 'right', 'four');
 
             // Artificial progress for GAS since it doesn't give real-time upload progress for base64 well
