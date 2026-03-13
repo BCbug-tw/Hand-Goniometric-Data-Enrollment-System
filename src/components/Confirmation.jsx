@@ -39,7 +39,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 `"${patientData.name || ''}"`,
                 `"${patientData.patient_id || ''}"`,
                 `"${patientData.enrollmentDate || ''}"`,
-                `"${new Date().toISOString()}"`,
+                `"${new Date().toLocaleString('zh-TW', { hour12: false }).replace(/\//g, '-')}"`,
                 `"${trialCode || ''}"`
             ];
 
@@ -63,7 +63,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                         const filename = `${patientData.patient_id}_${hand}_${gesture}_${Date.now()}_${index}.jpg`;
                         imageFolder.file(filename, media.blob);
                     } else {
-                        const filename = `${patientData.patient_id}_${hand}_${gesture}.webm`;
+                        const filename = `${patientData.patient_id}_${hand}_${gesture}_${index}.webm`;
                         videoFolder.file(filename, media.blob);
                     }
                 });
@@ -130,7 +130,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 `"${patientData.name || ''}"`,
                 `"${patientData.patient_id || ''}"`,
                 `"${patientData.enrollmentDate || ''}"`,
-                `"${new Date().toISOString()}"`,
+                `"${new Date().toLocaleString('zh-TW', { hour12: false }).replace(/\//g, '-')}"`,
                 `"${trialCode || ''}"`
             ];
             joints.forEach(j => row.push(`"${measurements?.left?.[j] || ''}"`));
