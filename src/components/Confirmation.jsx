@@ -69,10 +69,10 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 });
             };
 
-            addMediaToFolder(capturedMedia.leftThumb, 'left', 'thumbup');
-            addMediaToFolder(capturedMedia.leftFour, 'left', 'four');
-            addMediaToFolder(capturedMedia.rightThumb, 'right', 'thumbup');
-            addMediaToFolder(capturedMedia.rightFour, 'right', 'four');
+            addMediaToFolder(capturedMedia.leftFlexion, 'left', 'flexion');
+            addMediaToFolder(capturedMedia.leftExtension, 'left', 'extension');
+            addMediaToFolder(capturedMedia.rightFlexion, 'right', 'flexion');
+            addMediaToFolder(capturedMedia.rightExtension, 'right', 'extension');
 
             const content = await zip.generateAsync({ type: "blob" });
             const url = URL.createObjectURL(content);
@@ -146,10 +146,10 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 }
             };
 
-            await appendMediaFiles(capturedMedia.leftThumb, 'left', 'thumbup');
-            await appendMediaFiles(capturedMedia.leftFour, 'left', 'four');
-            await appendMediaFiles(capturedMedia.rightThumb, 'right', 'thumbup');
-            await appendMediaFiles(capturedMedia.rightFour, 'right', 'four');
+            await appendMediaFiles(capturedMedia.leftFlexion, 'left', 'flexion');
+            await appendMediaFiles(capturedMedia.leftExtension, 'left', 'extension');
+            await appendMediaFiles(capturedMedia.rightFlexion, 'right', 'flexion');
+            await appendMediaFiles(capturedMedia.rightExtension, 'right', 'extension');
 
             // Artificial progress for GAS since it doesn't give real-time upload progress for base64 well
             const progressInterval = setInterval(() => {
@@ -214,7 +214,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 <p className="text-muted mb-5">
                     {t('confirmation.complete_msg1')}<strong className="text-dark">{patientData.patient_id}</strong>{t('confirmation.complete_msg2')}
                     <br />{t('confirmation.uploaded_files', {
-                        count: capturedMedia.leftThumb.length + capturedMedia.leftFour.length + capturedMedia.rightThumb.length + capturedMedia.rightFour.length
+                        count: capturedMedia.leftFlexion.length + capturedMedia.leftExtension.length + capturedMedia.rightFlexion.length + capturedMedia.rightExtension.length
                     })}
                 </p>
                 <Button onClick={onComplete} variant="primary" size="lg" className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all">
@@ -250,16 +250,16 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
 
             <Row className="g-3 mb-4">
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.leftThumb, 'Left Thumb', 'flow.left_thumb_title')}
+                    {renderMediaGallery(capturedMedia.leftFlexion, 'Left Flexion', 'flow.left_flexion_title')}
                 </Col>
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.leftFour, 'Left Four', 'flow.left_four_title')}
+                    {renderMediaGallery(capturedMedia.leftExtension, 'Left Extension', 'flow.left_extension_title')}
                 </Col>
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.rightThumb, 'Right Thumb', 'flow.right_thumb_title')}
+                    {renderMediaGallery(capturedMedia.rightFlexion, 'Right Flexion', 'flow.right_flexion_title')}
                 </Col>
                 <Col xs={12} md={6}>
-                    {renderMediaGallery(capturedMedia.rightFour, 'Right Four', 'flow.right_four_title')}
+                    {renderMediaGallery(capturedMedia.rightExtension, 'Right Extension', 'flow.right_extension_title')}
                 </Col>
             </Row>
 

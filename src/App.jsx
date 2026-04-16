@@ -21,10 +21,10 @@ export default function App() {
   const [isExpertMode, setIsExpertMode] = useState(false);
 
   const [capturedMedia, setCapturedMedia] = useState({
-    leftThumb: [],
-    leftFull: [],
-    rightThumb: [],
-    rightFull: []
+    leftFlexion: [],
+    leftExtension: [],
+    rightFlexion: [],
+    rightExtension: []
   });
   const [measurements, setMeasurements] = useState({ left: {}, right: {} });
 
@@ -40,7 +40,7 @@ export default function App() {
       array.forEach(m => URL.revokeObjectURL(m.url));
     });
 
-    setCapturedMedia({ leftThumb: [], leftFull: [], rightThumb: [], rightFull: [] });
+    setCapturedMedia({ leftFlexion: [], leftExtension: [], rightFlexion: [], rightExtension: [] });
     setMeasurements({ left: {}, right: {} });
   }
 

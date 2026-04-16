@@ -48,14 +48,14 @@ const resources = {
                 "error_support": "Recording is not supported in this browser."
             },
             "flow": {
-                "left_thumb_title": "Left Thumb",
-                "left_thumb_desc": "Please fully extend the left thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "left_four_title": "Left Four",
-                "left_four_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
-                "right_thumb_title": "Right Thumb",
-                "right_thumb_desc": "Please fully extend the right thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
-                "right_four_title": "Right Four",
-                "right_four_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
+                "left_flexion_title": "Left Flexion",
+                "left_flexion_desc": "Please fully flex the left thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
+                "left_extension_title": "Left Extension",
+                "left_extension_desc": "Please curl your left thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated.",
+                "right_flexion_title": "Right Flexion",
+                "right_flexion_desc": "Please fully flex the right thumb while keeping the other fingers curled inward tightly. Ensure the camera captures the entire thumb joint.",
+                "right_extension_title": "Right Extension",
+                "right_extension_desc": "Please curl your right thumb inward toward the palm, fully extend the other fingers, and keep your hand flat with fingers naturally separated."
             },
             "guide": {
                 "title": "Instruction",
@@ -161,14 +161,14 @@ const resources = {
                 "error_support": "此瀏覽器不支援錄影功能。"
             },
             "flow": {
-                "left_thumb_title": "左手拇指伸展",
-                "left_thumb_desc": "請將左手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "left_four_title": "左手四指伸展",
-                "left_four_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
-                "right_thumb_title": "右手拇指伸展",
-                "right_thumb_desc": "請將右手大拇指完全伸展，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
-                "right_four_title": "右手四指伸展",
-                "right_four_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
+                "left_flexion_title": "左手拇指彎曲",
+                "left_flexion_desc": "請將左手大拇指完全彎曲，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
+                "left_extension_title": "左手四指伸展",
+                "left_extension_desc": "請將左手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。",
+                "right_flexion_title": "右手拇指彎曲",
+                "right_flexion_desc": "請將右手大拇指完全彎曲，其餘手指向內握緊。確保相機完整拍攝到拇指關節。",
+                "right_extension_title": "右手四指伸展",
+                "right_extension_desc": "請將右手大拇指向手掌內部彎曲，其餘手指完全伸展，手掌攤平且手指自然分開。"
             },
             "guide": {
                 "title": "動作指引",

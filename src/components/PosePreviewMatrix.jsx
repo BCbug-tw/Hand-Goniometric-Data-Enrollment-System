@@ -7,13 +7,13 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
     const { t } = useTranslation();
 
     // Mapping pose keys to their respective step numbers in the FlowManager
-    // 2: Left Thumb, 4: Left Four, 6: Right Thumb, 8: Right Four
+    // 2: Left Flexion, 4: Left Extension, 6: Right Flexion, 8: Right Extension
     const getStepForPose = (poseKey) => {
         switch (poseKey) {
-            case 'leftThumb': return 2;
-            case 'leftFour': return 4;
-            case 'rightThumb': return 6;
-            case 'rightFour': return 8;
+            case 'leftFlexion': return 2;
+            case 'leftExtension': return 4;
+            case 'rightFlexion': return 6;
+            case 'rightExtension': return 8;
             default: return 2;
         }
     };
@@ -84,16 +84,16 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
 
                 <Row className="g-4 flex-grow-1 mb-4">
                     <Col xs={12} md={6}>
-                        {renderMediaBox('leftThumb', 'flow.left_thumb_title')}
+                        {renderMediaBox('leftFlexion', 'flow.left_flexion_title')}
                     </Col>
                     <Col xs={12} md={6}>
-                        {renderMediaBox('leftFour', 'flow.left_four_title')}
+                        {renderMediaBox('leftExtension', 'flow.left_extension_title')}
                     </Col>
                     <Col xs={12} md={6}>
-                        {renderMediaBox('rightThumb', 'flow.right_thumb_title')}
+                        {renderMediaBox('rightFlexion', 'flow.right_flexion_title')}
                     </Col>
                     <Col xs={12} md={6}>
-                        {renderMediaBox('rightFour', 'flow.right_four_title')}
+                        {renderMediaBox('rightExtension', 'flow.right_extension_title')}
                     </Col>
                 </Row>
 

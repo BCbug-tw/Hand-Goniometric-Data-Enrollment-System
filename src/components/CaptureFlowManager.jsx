@@ -22,10 +22,10 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
 
     // Store all captured media categorized by pose
     const [capturedMedia, setCapturedMedia] = useState({
-        leftThumb: [],
-        leftFour: [],
-        rightThumb: [],
-        rightFour: []
+        leftFlexion: [],
+        leftExtension: [],
+        rightFlexion: [],
+        rightExtension: []
     });
 
     const goNext = () => {
@@ -54,7 +54,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
         if (isRetakeMode) {
             setIsRetakeMode(false);
             setInternalStep(9);
-        } else if (poseKey === 'rightFour') {
+        } else if (poseKey === 'rightExtension') {
             setInternalStep(9);
         } else {
             setInternalStep(prev => isExpertMode ? prev + 2 : prev + 1);
@@ -65,70 +65,70 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
         switch (internalStep) {
             case 1:
                 return <PoseGuide
-                    title={t('flow.left_thumb_title')}
-                    instructions={t('flow.left_thumb_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}left_thumb.jpg`}
+                    title={t('flow.left_flexion_title')}
+                    instructions={t('flow.left_flexion_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}left_flexion.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 2:
                 return <CameraCapture
-                    key="camera-leftThumb"
-                    title={t('flow.left_thumb_title')}
-                    side="leftThumb"
-                    initialGallery={capturedMedia.leftThumb}
-                    onCapture={(media) => handleCaptureComplete('leftThumb', media)}
+                    key="camera-leftFlexion"
+                    title={t('flow.left_flexion_title')}
+                    side="leftFlexion"
+                    initialGallery={capturedMedia.leftFlexion}
+                    onCapture={(media) => handleCaptureComplete('leftFlexion', media)}
                     onBack={goBack}
                 />;
             case 3:
                 return <PoseGuide
-                    title={t('flow.left_four_title')}
-                    instructions={t('flow.left_four_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}left_four.jpg`}
+                    title={t('flow.left_extension_title')}
+                    instructions={t('flow.left_extension_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}left_extension.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 4:
                 return <CameraCapture
-                    key="camera-leftFour"
-                    title={t('flow.left_four_title')}
-                    side="leftFour"
-                    initialGallery={capturedMedia.leftFour}
-                    onCapture={(media) => handleCaptureComplete('leftFour', media)}
+                    key="camera-leftExtension"
+                    title={t('flow.left_extension_title')}
+                    side="leftExtension"
+                    initialGallery={capturedMedia.leftExtension}
+                    onCapture={(media) => handleCaptureComplete('leftExtension', media)}
                     onBack={goBack}
                 />;
             case 5:
                 return <PoseGuide
-                    title={t('flow.right_thumb_title')}
-                    instructions={t('flow.right_thumb_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}right_thumb.jpg`}
+                    title={t('flow.right_flexion_title')}
+                    instructions={t('flow.right_flexion_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}right_flexion.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 6:
                 return <CameraCapture
-                    key="camera-rightThumb"
-                    title={t('flow.right_thumb_title')}
-                    side="rightThumb"
-                    initialGallery={capturedMedia.rightThumb}
-                    onCapture={(media) => handleCaptureComplete('rightThumb', media)}
+                    key="camera-rightFlexion"
+                    title={t('flow.right_flexion_title')}
+                    side="rightFlexion"
+                    initialGallery={capturedMedia.rightFlexion}
+                    onCapture={(media) => handleCaptureComplete('rightFlexion', media)}
                     onBack={goBack}
                 />;
             case 7:
                 return <PoseGuide
-                    title={t('flow.right_four_title')}
-                    instructions={t('flow.right_four_desc')}
-                    imagePath={`${import.meta.env.BASE_URL}right_four.jpg`}
+                    title={t('flow.right_extension_title')}
+                    instructions={t('flow.right_extension_desc')}
+                    imagePath={`${import.meta.env.BASE_URL}right_extension.jpg`}
                     onNext={goNext}
                     onBack={goBack}
                 />;
             case 8:
                 return <CameraCapture
-                    key="camera-rightFour"
-                    title={t('flow.right_four_title')}
-                    side="rightFour"
-                    initialGallery={capturedMedia.rightFour}
-                    onCapture={(media) => handleCaptureComplete('rightFour', media)}
+                    key="camera-rightExtension"
+                    title={t('flow.right_extension_title')}
+                    side="rightExtension"
+                    initialGallery={capturedMedia.rightExtension}
+                    onCapture={(media) => handleCaptureComplete('rightExtension', media)}
                     onBack={goBack}
                 />;
             case 9:
