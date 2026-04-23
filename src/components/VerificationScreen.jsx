@@ -10,7 +10,7 @@ export default function VerificationScreen({ onVerifySuccess }) {
     const [isVerifying, setIsVerifying] = useState(false);
     const [error, setError] = useState('');
 
-    const API_URL = 'https://script.google.com/macros/s/AKfycbxgee-TmBYPDEE8CyzDOMeXehATqsKElySrgQz5xdxWUDBo4-TDvanZQFanh5yNs1b3/exec';
+    const API_URL = 'https://script.google.com/macros/s/AKfycbzf-cqGOmvsNy8OFzcuT1o7PzSTbQDFCz-HJO570w258Ybj38e5U1Pmm-wvF9LwAVRQ/exec';
 
     const handleVerify = async (e) => {
         e.preventDefault();

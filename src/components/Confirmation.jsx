@@ -156,7 +156,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
                 setProgress(prev => (prev < 90 ? prev + 10 : prev));
             }, 500);
 
-            const API_URL = 'https://script.google.com/macros/s/AKfycbxgee-TmBYPDEE8CyzDOMeXehATqsKElySrgQz5xdxWUDBo4-TDvanZQFanh5yNs1b3/exec';
+            const API_URL = 'https://script.google.com/macros/s/AKfycbzf-cqGOmvsNy8OFzcuT1o7PzSTbQDFCz-HJO570w258Ybj38e5U1Pmm-wvF9LwAVRQ/exec';
 
             const response = await axios.post(API_URL, formData);
             clearInterval(progressInterval);
