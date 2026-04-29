@@ -21,20 +21,23 @@ export default function PatientForm({ data, setData, onNext }) {
     const isFormValid = data.name.trim() !== '' && data.patient_id.trim() !== '' && data.enrollmentDate;
 
     return (
-        <div className="p-4 p-md-5">
-            <div className="text-center mb-4">
-                <h2 className="fw-bold mb-2">{t('patient_form.title')}</h2>
-                <p className="text-muted">{t('patient_form.subtitle')}</p>
+        <div className="py-2">
+            <div className="mb-5 text-start">
+                <h1 className="fw-bold mb-3 text-main" style={{ fontSize: '2.5rem', letterSpacing: '-0.02em', lineHeight: '1.3' }}>
+                    {t('patient_form.greeting', '您好，')}<br />
+                    {t('patient_form.title', '請先填寫受試者資訊')}
+                </h1>
+                <p className="text-secondary fs-6">{t('patient_form.subtitle', '這些資料將與本次的 ROM 分析結果一同保存。')}</p>
             </div>
 
-            <Form onSubmit={handleSubmit}>
+            <Form onSubmit={handleSubmit} className="text-start mt-5">
                 <Form.Group className="mb-4">
-                    <Form.Label className="fw-medium text-secondary">
+                    <Form.Label className="small text-secondary fw-medium">
                         {t('patient_form.name')} <span className="text-danger">*</span>
                     </Form.Label>
                     <div className="input-group">
-                        <span className="input-group-text bg-white border-end-0">
-                            <User size={18} className="text-muted" />
+                        <span className="input-group-text soft-input-addon border-end-0 pe-2">
+                            <User size={18} />
                         </span>
                         <Form.Control
                             type="text"
@@ -42,19 +45,19 @@ export default function PatientForm({ data, setData, onNext }) {
                             required
                             value={data.name}
                             onChange={handleChange}
-                            placeholder={t('patient_form.name_placeholder')}
-                            className="border-start-0 ps-0 form-control-lg"
+                            placeholder={t('patient_form.name_placeholder', '例如：王小明')}
+                            className="soft-input border-start-0 ps-2"
                         />
                     </div>
                 </Form.Group>
 
                 <Form.Group className="mb-4">
-                    <Form.Label className="fw-medium text-secondary">
+                    <Form.Label className="small text-secondary fw-medium">
                         {t('patient_form.patient_id')} <span className="text-danger">*</span>
                     </Form.Label>
                     <div className="input-group">
-                        <span className="input-group-text bg-white border-end-0">
-                            <Stethoscope size={18} className="text-muted" />
+                        <span className="input-group-text soft-input-addon border-end-0 pe-2">
+                            <Stethoscope size={18} />
                         </span>
                         <Form.Control
                             type="text"
@@ -62,19 +65,19 @@ export default function PatientForm({ data, setData, onNext }) {
                             required
                             value={data.patient_id}
                             onChange={handleChange}
-                            placeholder={t('patient_form.patient_id_placeholder')}
-                            className="border-start-0 ps-0 form-control-lg"
+                            placeholder={t('patient_form.patient_id_placeholder', '例如：S001')}
+                            className="soft-input border-start-0 ps-2"
                         />
                     </div>
                 </Form.Group>
 
                 <Form.Group className="mb-5">
-                    <Form.Label className="fw-medium text-secondary">
+                    <Form.Label className="small text-secondary fw-medium">
                         {t('patient_form.enrollment_date')} <span className="text-danger">*</span>
                     </Form.Label>
                     <div className="input-group">
-                        <span className="input-group-text bg-white border-end-0">
-                            <Calendar size={18} className="text-muted" />
+                        <span className="input-group-text soft-input-addon border-end-0 pe-2">
+                            <Calendar size={18} />
                         </span>
                         <Form.Control
                             type="date"
@@ -82,7 +85,7 @@ export default function PatientForm({ data, setData, onNext }) {
                             required
                             value={data.enrollmentDate}
                             onChange={handleChange}
-                            className="border-start-0 ps-0 form-control-lg"
+                            className="soft-input border-start-0 ps-2"
                         />
                     </div>
                 </Form.Group>
@@ -91,11 +94,17 @@ export default function PatientForm({ data, setData, onNext }) {
                     variant="primary"
                     type="submit"
                     size="lg"
-                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
+                    className="btn-primary-action w-100 d-flex align-items-center justify-content-center gap-2 py-3 mt-4"
                     disabled={!isFormValid}
                 >
-                    {t('patient_form.next')} <ArrowRight size={20} />
+                    {t('patient_form.next', '下一步')} <ArrowRight size={20} />
                 </Button>
+                
+                <div className="text-center mt-4">
+                    <span className="text-secondary small cursor-pointer hover-text-primary-green transition-all">
+                        {t('patient_form.view_records', '或 查看所有收案紀錄')}
+                    </span>
+                </div>
             </Form>
         </div>
     );

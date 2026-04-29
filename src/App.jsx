@@ -59,83 +59,81 @@ export default function App() {
   }
 
   return (
-    <div className="bg-light min-vh-100">
-      <nav className="navbar navbar-dark bg-primary shadow-sm mb-4">
-        <div className="container-fluid d-flex justify-content-between align-items-center">
-          <div style={{ width: 80 }}></div> {/* Spacer for symmetry */}
-          <span className="navbar-brand mb-0 h1 m-0">{t('app.title')}</span>
-          <Button
-            variant="outline-light"
-            size="sm"
-            onClick={toggleLanguage}
-            className="rounded-pill px-3 fw-bold"
-            style={{ width: 80 }}
-          >
-            {i18n.language === 'en' ? '中文' : 'EN'}
-          </Button>
-        </div>
-      </nav>
+    <div className="bg-cream min-vh-100 font-sans">
+      {/* Minimalist Top Nav */}
+      <div className="d-flex justify-content-end p-4">
+        <Button
+          variant="light"
+          size="sm"
+          onClick={toggleLanguage}
+          className="rounded-pill px-3 fw-bold text-secondary bg-white border-soft shadow-sm"
+          style={{ width: 80 }}
+        >
+          {i18n.language === 'en' ? '中文' : 'EN'}
+        </Button>
+      </div>
 
-      <Container className="pb-5">
+      <Container className="pb-5 pt-3">
         <Row className="justify-content-center">
           <Col xs={12} md={10} lg={8} xl={6}>
-            {/* Step Progress Indicator */}
-            <div className="d-flex justify-content-between mb-4 px-3 text-muted small">
-              <span className={currentStep >= 1 ? "text-primary fw-bold" : ""}>{t('stepper.info')}</span>
-              <span className={currentStep >= 2 ? "text-primary fw-bold" : ""}>{t('stepper.pre_confirm')}</span>
-              <span className={currentStep >= 3 ? "text-primary fw-bold" : ""}>{t('stepper.capture')}</span>
-              <span className={currentStep >= 4 ? "text-primary fw-bold" : ""}>{t('stepper.measurements')}</span>
-              <span className={currentStep >= 5 ? "text-primary fw-bold" : ""}>{t('stepper.confirm')}</span>
+            {/* Minimalist Text Stepper */}
+            <div className="d-flex justify-content-center align-items-center mb-5 text-secondary small gap-3">
+              <span className={currentStep === 1 ? "text-primary-green fw-bold fs-6" : ""}>{t('stepper.info')}</span>
+              <span className="text-muted opacity-50">—</span>
+              <span className={currentStep >= 2 && currentStep <= 3 ? "text-primary-green fw-bold fs-6" : ""}>{t('stepper.capture')}</span>
+              <span className="text-muted opacity-50">—</span>
+              <span className={currentStep === 4 ? "text-primary-green fw-bold fs-6" : ""}>{t('stepper.measurements')}</span>
+              <span className="text-muted opacity-50">—</span>
+              <span className={currentStep === 5 ? "text-primary-green fw-bold fs-6" : ""}>{t('stepper.confirm')}</span>
             </div>
 
-            <Card className="shadow-sm border-0 rounded-4 overflow-hidden">
-              <Card.Body className="p-0">
-                {currentStep === 1 && (
-                  <PatientForm
-                    data={patientData}
-                    setData={setPatientData}
-                    onNext={nextStep}
-                  />
-                )}
-                {currentStep === 2 && (
-                  <PreConfirmation
-                    data={patientData}
-                    isExpertMode={isExpertMode}
-                    setIsExpertMode={setIsExpertMode}
-                    onNext={nextStep}
-                    onBack={prevStep}
-                  />
-                )}
-                {currentStep === 3 && (
-                  <CaptureFlowManager
-                    isExpertMode={isExpertMode}
-                    onComplete={(media) => {
-                      setCapturedMedia(media);
-                      nextStep();
-                    }}
-                    onBack={prevStep}
-                  />
-                )}
-                {currentStep === 4 && (
-                  <MeasurementForm
-                    data={measurements}
-                    setData={setMeasurements}
-                    onNext={nextStep}
-                    onBack={prevStep}
-                  />
-                )}
-                {currentStep === 5 && (
-                  <Confirmation
-                    patientData={patientData}
-                    trialCode={trialCode}
-                    capturedMedia={capturedMedia}
-                    measurements={measurements}
-                    onBack={prevStep}
-                    onComplete={resetFlow}
-                  />
-                )}
-              </Card.Body>
-            </Card>
+            {/* Content Area - No global card wrapper to allow components to manage their own layout */}
+            <div className="content-wrapper">
+              {currentStep === 1 && (
+                <PatientForm
+                  data={patientData}
+                  setData={setPatientData}
+                  onNext={nextStep}
+                />
+              )}
+              {currentStep === 2 && (
+                <PreConfirmation
+                  data={patientData}
+                  isExpertMode={isExpertMode}
+                  setIsExpertMode={setIsExpertMode}
+                  onNext={nextStep}
+                  onBack={prevStep}
+                />
+              )}
+              {currentStep === 3 && (
+                <CaptureFlowManager
+                  isExpertMode={isExpertMode}
+                  onComplete={(media) => {
+                    setCapturedMedia(media);
+                    nextStep();
+                  }}
+                  onBack={prevStep}
+                />
+              )}
+              {currentStep === 4 && (
+                <MeasurementForm
+                  data={measurements}
+                  setData={setMeasurements}
+                  onNext={nextStep}
+                  onBack={prevStep}
+                />
+              )}
+              {currentStep === 5 && (
+                <Confirmation
+                  patientData={patientData}
+                  trialCode={trialCode}
+                  capturedMedia={capturedMedia}
+                  measurements={measurements}
+                  onBack={prevStep}
+                  onComplete={resetFlow}
+                />
+              )}
+            </div>
           </Col>
         </Row>
       </Container>

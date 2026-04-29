@@ -38,14 +38,14 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
     };
 
     return (
-        <div className="p-4 p-md-5">
-            <div className="d-flex align-items-center mb-4 gap-3">
-                <Button variant="light" className="rounded-circle d-flex align-items-center justify-content-center p-2 border-0 shadow-sm" onClick={onBack}>
-                    <ArrowLeft size={24} />
+        <div className="py-2">
+            <div className="mb-4 d-flex flex-column">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6 w-auto align-self-start" onClick={onBack}>
+                    <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
                 <div>
-                    <h3 className="mb-1 fw-bold">{t('measurements.title')}</h3>
-                    <p className="text-muted small mb-0">{t('measurements.subtitle')}</p>
+                    <h3 className="mb-1 fw-bold text-main">{t('measurements.title')}</h3>
+                    <p className="text-secondary small mb-0">{t('measurements.subtitle')}</p>
                 </div>
             </div>
 
@@ -53,12 +53,12 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                 <Tabs
                     activeKey={activeTab}
                     onSelect={(k) => setActiveTab(k)}
-                    className="mb-4 custom-tabs"
+                    className="mb-4 sleek-tabs border-0"
                     variant="pills"
                     justify
                 >
                     <Tab eventKey="left" title={t('measurements.left_hand')}>
-                        <div className="bg-light p-4 rounded-4 shadow-sm border mt-3">
+                        <div className="sleek-card p-4 mt-3">
                             <Row className="g-3">
                                 {joints.map((joint) => (
                                     <Col xs={6} md={4} key={`left-${joint.key}`}>
@@ -74,7 +74,7 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                                                 placeholder="0"
                                                 value={data.left?.[joint.key] || ''}
                                                 onChange={(e) => handleChange('left', joint.key, e.target.value)}
-                                                className="border-0 shadow-sm"
+                                                className="soft-input shadow-none"
                                             />
                                         </Form.Group>
                                     </Col>
@@ -84,7 +84,7 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                     </Tab>
 
                     <Tab eventKey="right" title={t('measurements.right_hand')}>
-                        <div className="bg-light p-4 rounded-4 shadow-sm border mt-3">
+                        <div className="sleek-card p-4 mt-3">
                             <Row className="g-3">
                                 {joints.map((joint) => (
                                     <Col xs={6} md={4} key={`right-${joint.key}`}>
@@ -100,7 +100,7 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                                                 placeholder="0"
                                                 value={data.right?.[joint.key] || ''}
                                                 onChange={(e) => handleChange('right', joint.key, e.target.value)}
-                                                className="border-0 shadow-sm"
+                                                className="soft-input shadow-none"
                                             />
                                         </Form.Group>
                                     </Col>
@@ -113,10 +113,9 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
                 <hr className="my-5 opacity-25" />
 
                 <Button
-                    variant="primary"
                     type="submit"
                     size="lg"
-                    className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
+                    className="btn-primary-action w-100 d-flex align-items-center justify-content-center gap-2 py-3"
                 >
                     {t('measurements.review')} <ArrowRight size={20} />
                 </Button>

@@ -176,10 +176,9 @@ export default function CameraCapture({ title, side, initialGallery = [], onCapt
                 {gallery.length > 0 && !isRecording && (
                     <Button
                         onClick={handleComplete}
-                        variant="primary"
-                        className="rounded-pill d-flex align-items-center gap-2 fw-medium px-4 py-2 shadow-sm"
+                        className="btn-primary-action rounded-pill d-flex align-items-center gap-2 fw-medium px-4 py-2 shadow-sm"
                     >
-                        {t('camera.continue')} <ArrowRight size={18} />
+                        {t('camera.continue', '繼續')} <ArrowRight size={18} />
                     </Button>
                 )}
             </div>

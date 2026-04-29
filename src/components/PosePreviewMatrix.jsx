@@ -23,21 +23,21 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
         const poseTitle = t(titleKey);
 
         return (
-            <Card className="h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-                <Card.Header className="bg-white border-bottom-0 pt-3 pb-2 d-flex justify-content-between align-items-center">
-                    <span className="fw-bold text-dark small text-uppercase">{poseTitle}</span>
+            <Card className="h-100 sleek-card overflow-hidden">
+                <Card.Header className="bg-transparent border-bottom-0 pt-3 pb-2 d-flex justify-content-between align-items-center">
+                    <span className="fw-bold text-main small text-uppercase">{poseTitle}</span>
                     <Button
-                        variant="light"
+                        variant="link"
                         size="sm"
-                        className="rounded-pill px-3 py-1 text-primary fw-medium small border-0 bg-primary bg-opacity-10 d-flex align-items-center gap-1 hover-overlay"
+                        className="text-decoration-none px-2 py-1 text-primary-green fw-medium small d-flex align-items-center gap-1"
                         onClick={() => onRetake(getStepForPose(poseKey))}
                     >
                         {items.length > 0 ? <><Edit2 size={14} /> {t('matrix.edit')}</> : <><Plus size={14} /> {t('matrix.add')}</>}
                     </Button>
                 </Card.Header>
-                <Card.Body className="p-3 bg-light">
+                <Card.Body className="p-3 bg-cream bg-opacity-50">
                     {items.length === 0 ? (
-                        <div className="h-100 d-flex flex-column align-items-center justify-content-center text-muted opacity-50 py-4">
+                        <div className="h-100 d-flex flex-column align-items-center justify-content-center text-secondary opacity-50 py-4">
                             <Camera size={32} className="mb-2" />
                             <small>{t('matrix.no_media')}</small>
                         </div>
@@ -65,24 +65,20 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
     };
 
     return (
-        <div className="bg-light min-vh-100 d-flex flex-column">
-            <div className="p-3 d-flex align-items-center bg-white shadow-sm position-sticky top-0 z-3">
-                <Button
-                    variant="light"
-                    className="rounded-circle d-flex align-items-center justify-content-center p-2 border-0 shadow-sm"
-                    onClick={onBack}
-                >
-                    <ArrowLeft size={24} />
+        <div className="d-flex flex-column py-2">
+            <div className="mb-4 d-flex align-items-center">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 fs-6" onClick={onBack}>
+                    <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
-                <div className="fw-bold fs-5 ms-3 text-dark">
+                <div className="fw-bold fs-5 ms-3 text-main flex-grow-1 text-center pe-4">
                     {t('matrix.title')}
                 </div>
             </div>
 
-            <Container className="flex-grow-1 py-4 d-flex flex-column">
-                <p className="text-muted text-center mb-4">{t('matrix.subtitle')}</p>
+            <Container className="flex-grow-1 py-2 px-0 d-flex flex-column">
+                <p className="text-secondary text-center mb-4">{t('matrix.subtitle')}</p>
 
-                <Row className="g-4 flex-grow-1 mb-4">
+                <Row className="g-4 flex-grow-1 mb-5">
                     <Col xs={12} md={6}>
                         {renderMediaBox('leftFlexion', 'flow.left_flexion_title')}
                     </Col>
@@ -97,11 +93,10 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
                     </Col>
                 </Row>
 
-                <div className="mt-auto px-3 pb-3">
+                <div className="mt-auto pb-3">
                     <Button
-                        variant="primary"
                         size="lg"
-                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
+                        className="btn-primary-action w-100 d-flex align-items-center justify-content-center gap-2 py-3"
                         onClick={onConfirm}
                     >
                         {t('matrix.confirm_proceed')} <ArrowRight size={20} />

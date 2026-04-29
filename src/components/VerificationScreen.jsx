@@ -68,26 +68,26 @@ export default function VerificationScreen({ onVerifySuccess }) {
             <Container className="flex-grow-1 d-flex align-items-center justify-content-center py-5">
                 <Row className="w-100 justify-content-center">
                     <Col xs={12} md={8} lg={6} xl={5}>
-                        <Card className="shadow-lg border-0 rounded-4 overflow-hidden">
+                        <Card className="sleek-card overflow-hidden text-center py-4 px-2">
                             <Card.Body className="p-4 p-md-5">
-                                <div className="text-center mb-5">
-                                    <div className="d-inline-flex align-items-center justify-content-center bg-primary bg-opacity-10 text-primary rounded-circle mb-3" style={{ width: 80, height: 80 }}>
-                                        <ShieldCheck size={40} />
+                                <div className="text-center mb-4">
+                                    <div className="d-inline-flex align-items-center justify-content-center bg-primary-green text-white mb-3" style={{ width: 64, height: 64, borderRadius: '16px' }}>
+                                        <Hand size={32} />
                                     </div>
-                                    <h2 className="fw-bold mb-2">{t('app.title')}</h2>
-                                    <p className="text-muted">{t('verification.subtitle')}</p>
+                                    <h2 className="fw-bold mb-2 text-main fs-4">{t('app.title')}</h2>
+                                    <p className="text-secondary small mt-2">{t('verification.subtitle', '醫療人員登錄')}</p>
                                 </div>
 
                                 {error && (
-                                    <Alert variant="danger" className="rounded-3 border-0 d-flex align-items-center gap-2 mb-4">
+                                    <Alert variant="danger" className="rounded-3 border-0 d-flex align-items-center gap-2 mb-4 text-start">
                                         <Lock size={18} className="flex-shrink-0" />
                                         <span>{error}</span>
                                     </Alert>
                                 )}
 
-                                <Form onSubmit={handleVerify}>
+                                <Form onSubmit={handleVerify} className="text-start mt-4">
                                     <Form.Group className="mb-4">
-                                        <Form.Label className="fw-bold text-muted small text-uppercase">
+                                        <Form.Label className="small text-secondary fw-medium">
                                             {t('verification.code_label')}
                                         </Form.Label>
                                         <Form.Control
@@ -96,7 +96,7 @@ export default function VerificationScreen({ onVerifySuccess }) {
                                             placeholder={t('verification.code_placeholder')}
                                             value={code}
                                             onChange={(e) => setCode(e.target.value)}
-                                            className="rounded-3 px-3 py-3 bg-light border-0"
+                                            className="soft-input w-100"
                                             autoFocus
                                             autoComplete="off"
                                             disabled={isVerifying}
@@ -105,9 +105,8 @@ export default function VerificationScreen({ onVerifySuccess }) {
 
                                     <Button
                                         type="submit"
-                                        variant="primary"
                                         size="lg"
-                                        className="w-100 d-flex align-items-center justify-content-center gap-2 rounded-pill py-3 fw-bold shadow-sm transition-all"
+                                        className="btn-primary-action w-100 d-flex align-items-center justify-content-center gap-2 py-3 mt-5"
                                         disabled={isVerifying}
                                     >
                                         {isVerifying ? (
@@ -119,9 +118,8 @@ export default function VerificationScreen({ onVerifySuccess }) {
                                 </Form>
                             </Card.Body>
                         </Card>
-                        <div className="text-center mt-4 p-3 text-muted small">
-                            <Lock size={12} className="me-1" />
-                            {t('verification.footer_note')}
+                        <div className="text-center mt-4 p-3 text-secondary small">
+                            {t('verification.footer_note', '或者使用其他方式登入')}
                         </div>
                     </Col>
                 </Row>
