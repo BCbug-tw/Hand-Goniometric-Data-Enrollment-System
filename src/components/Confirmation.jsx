@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Button, Row, Col, Card, ProgressBar, Alert, Badge } from 'react-bootstrap';
-import { UploadCloud, CheckCircle2, AlertCircle, ArrowLeft, RefreshCw, Hand, Activity, Camera, Video, Download } from 'lucide-react';
+import { UploadCloud, CheckCircle2, AlertCircle, ArrowLeft, RefreshCw, Hand, Activity, Camera, Video, Download, User } from 'lucide-react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 import JSZip from 'jszip';
@@ -208,7 +208,7 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
     if (uploadStatus === 'success') {
         return (
             <div className="p-5 text-center">
-                <div className="d-inline-flex align-items-center justify-content-center bg-primary-green bg-opacity-10 text-primary-green rounded-circle mb-4" style={{ width: 80, height: 80 }}>
+                <div className="d-inline-flex align-items-center justify-content-center bg-primary-green-soft rounded-circle mb-4" style={{ width: 80, height: 80 }}>
                     <CheckCircle2 size={40} />
                 </div>
                 <h2 className="fw-bold mb-3 text-main">{t('confirmation.upload_complete')}</h2>
@@ -227,18 +227,17 @@ export default function Confirmation({ patientData, trialCode, capturedMedia, me
 
     return (
         <div className="py-2">
-            <div className="mb-4 d-flex align-items-center">
-                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 fs-6" onClick={onBack} disabled={uploadStatus === 'uploading'}>
+            <div className="mb-4 text-start">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6" onClick={onBack} disabled={uploadStatus === 'uploading'}>
                     <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
-                <div className="fw-bold fs-5 ms-3 text-main flex-grow-1 text-center pe-4">
-                    {t('confirmation.title')}
-                </div>
+                <h3 className="mb-1 fw-bold text-main">{t('confirmation.title')}</h3>
+                <p className="text-secondary small mb-0">{t('confirmation.subtitle', '請確認以下分析結果與姿態影像。')}</p>
             </div>
 
             <Card className="sleek-card mb-4">
                 <Card.Body className="p-4 d-flex align-items-center flex-column flex-md-row gap-4">
-                    <div className="bg-primary-green bg-opacity-10 text-primary-green d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: 64, height: 64, borderRadius: '16px' }}>
+                    <div className="bg-primary-green-soft d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: 64, height: 64, borderRadius: '16px' }}>
                         <User size={32} />
                     </div>
                     <Row className="g-4 w-100 m-0">

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Card, Button, Row, Col, Form } from 'react-bootstrap';
-import { ArrowLeft, ArrowRight, Video, Zap } from 'lucide-react';
+import { ArrowLeft, ArrowRight, Video, Zap, User } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
 export default function PreConfirmation({ data, isExpertMode, setIsExpertMode, onNext, onBack }) {
@@ -18,7 +18,7 @@ export default function PreConfirmation({ data, isExpertMode, setIsExpertMode, o
 
             <Card className="sleek-card mb-5">
                 <Card.Body className="p-4 d-flex align-items-center flex-column flex-md-row gap-4">
-                    <div className="bg-primary-green bg-opacity-10 text-primary-green d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: 64, height: 64, borderRadius: '16px' }}>
+                    <div className="bg-primary-green-soft d-flex align-items-center justify-content-center flex-shrink-0" style={{ width: 64, height: 64, borderRadius: '16px' }}>
                         <User size={32} />
                     </div>
                     <Row className="g-4 w-100 m-0">

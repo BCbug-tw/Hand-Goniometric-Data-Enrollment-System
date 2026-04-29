@@ -8,13 +8,12 @@ export default function PoseGuide({ title, instructions, imagePath, onNext, onBa
 
     return (
         <div className="d-flex flex-column py-2">
-            <div className="mb-4 d-flex align-items-center">
-                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 fs-6" onClick={onBack}>
+            <div className="mb-4 text-start">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6" onClick={onBack}>
                     <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
-                <div className="fw-bold fs-5 ms-3 text-main flex-grow-1 text-center pe-4">
-                    {title} - {t('guide.title')}
-                </div>
+                <h3 className="mb-1 fw-bold text-main">{title} - {t('guide.title')}</h3>
+                <p className="text-secondary small mb-0">{t('guide.subtitle', '請參考下方指示進行拍攝。')}</p>
             </div>
 
             <Container className="flex-grow-1 d-flex flex-column justify-content-center px-0 max-w-md mx-auto" style={{ maxWidth: '600px' }}>

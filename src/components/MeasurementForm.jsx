@@ -39,14 +39,12 @@ export default function MeasurementForm({ data, setData, onNext, onBack }) {
 
     return (
         <div className="py-2">
-            <div className="mb-4 d-flex flex-column">
-                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6 w-auto align-self-start" onClick={onBack}>
+            <div className="mb-4 text-start">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6" onClick={onBack}>
                     <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
-                <div>
-                    <h3 className="mb-1 fw-bold text-main">{t('measurements.title')}</h3>
-                    <p className="text-secondary small mb-0">{t('measurements.subtitle')}</p>
-                </div>
+                <h3 className="mb-1 fw-bold text-main">{t('measurements.title')}</h3>
+                <p className="text-secondary small mb-0">{t('measurements.subtitle')}</p>
             </div>
 
             <Form onSubmit={handleSubmit}>

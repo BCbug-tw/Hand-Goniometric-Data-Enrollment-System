@@ -129,9 +129,9 @@ const resources = {
             },
             "patient_form": {
                 "title": "受試者資訊",
-                "subtitle": "請輸入基本資料以開始流程。",
+                "subtitle": "請輸入基本資料以開始流程",
                 "name": "姓名",
-                "name_placeholder": "輸入姓名",
+                "name_placeholder": "例如：王小明",
                 "patient_id": "受試者代號",
                 "patient_id_placeholder": "輸入受試者代號",
                 "enrollment_date": "收案日期",

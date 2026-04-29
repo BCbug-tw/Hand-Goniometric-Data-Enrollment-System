@@ -66,17 +66,15 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
 
     return (
         <div className="d-flex flex-column py-2">
-            <div className="mb-4 d-flex align-items-center">
-                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 fs-6" onClick={onBack}>
+            <div className="mb-4 text-start">
+                <Button variant="link" className="text-secondary text-decoration-none p-0 d-flex align-items-center gap-2 mb-3 fs-6" onClick={onBack}>
                     <ArrowLeft size={18} /> {t('pre_confirmation.back', '返回')}
                 </Button>
-                <div className="fw-bold fs-5 ms-3 text-main flex-grow-1 text-center pe-4">
-                    {t('matrix.title')}
-                </div>
+                <h3 className="mb-1 fw-bold text-main">{t('matrix.title')}</h3>
+                <p className="text-secondary small mb-0">{t('matrix.subtitle')}</p>
             </div>
 
             <Container className="flex-grow-1 py-2 px-0 d-flex flex-column">
-                <p className="text-secondary text-center mb-4">{t('matrix.subtitle')}</p>
 
                 <Row className="g-4 flex-grow-1 mb-5">
                     <Col xs={12} md={6}>

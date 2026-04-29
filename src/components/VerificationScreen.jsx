@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Container, Row, Col, Card, Button, Form, Alert, Spinner } from 'react-bootstrap';
-import { Lock, ArrowRight, ShieldCheck } from 'lucide-react';
+import { Lock, ArrowRight, ShieldCheck, Hand } from 'lucide-react';
 import axios from 'axios';
 import { useTranslation } from 'react-i18next';
 
@@ -49,20 +49,22 @@ export default function VerificationScreen({ onVerifySuccess }) {
 
     return (
         <div className="bg-light min-vh-100 d-flex flex-column">
-            {/* Minimal Navbar just for language toggle */}
-            <nav className="navbar navbar-dark bg-primary shadow-sm p-3">
-                <div className="container-fluid d-flex justify-content-end">
-                    <Button
-                        variant="outline-light"
-                        size="sm"
-                        onClick={toggleLanguage}
-                        className="rounded-pill px-3 fw-bold"
-                        style={{ width: 80 }}
-                    >
-                        {i18n.language === 'en' ? '中文' : 'EN'}
-                    </Button>
+            {/* Sleek Floating Navbar */}
+            <div className="container-fluid pt-3 pb-2">
+                <div className="sleek-navbar d-flex align-items-center justify-content-between mx-auto" style={{ maxWidth: '1200px' }}>
+                    <div className="d-flex align-items-center gap-2">
+                        <div className="sleek-navbar-logo flex-shrink-0">
+                            <Hand size={20} />
+                        </div>
+                        <span className="fw-bold text-main ms-1" style={{ fontSize: '1.05rem' }}>{t('app.title')}</span>
+                    </div>
+                    <div className="d-flex align-items-center gap-2">
+                        <button className="sleek-btn-cream bg-white border" onClick={toggleLanguage}>
+                            中 / EN
+                        </button>
+                    </div>
                 </div>
-            </nav>
+            </div>
 
             {/* Main Centered Content */}
             <Container className="flex-grow-1 d-flex align-items-center justify-content-center py-5">

@@ -24,7 +24,6 @@ export default function PatientForm({ data, setData, onNext }) {
         <div className="py-2">
             <div className="mb-5 text-start">
                 <h1 className="fw-bold mb-3 text-main" style={{ fontSize: '2.5rem', letterSpacing: '-0.02em', lineHeight: '1.3' }}>
-                    {t('patient_form.greeting', '您好，')}<br />
                     {t('patient_form.title', '請先填寫受試者資訊')}
                 </h1>
                 <p className="text-secondary fs-6">{t('patient_form.subtitle', '這些資料將與本次的 ROM 分析結果一同保存。')}</p>
@@ -99,12 +98,7 @@ export default function PatientForm({ data, setData, onNext }) {
                 >
                     {t('patient_form.next', '下一步')} <ArrowRight size={20} />
                 </Button>
-                
-                <div className="text-center mt-4">
-                    <span className="text-secondary small cursor-pointer hover-text-primary-green transition-all">
-                        {t('patient_form.view_records', '或 查看所有收案紀錄')}
-                    </span>
-                </div>
+
             </Form>
         </div>
     );

@@ -75,6 +75,11 @@ button {
   background-color: var(--primary-green) !important;
 }
 
+.bg-primary-green-soft {
+  background-color: rgba(42, 92, 67, 0.1) !important;
+  color: var(--primary-green) !important;
+}
+
 .bg-cream {
   background-color: var(--bg-cream) !important;
 }
@@ -109,4 +114,44 @@ button {
 .btn-outline-primary-action:hover, .btn-outline-primary-action:focus {
   background-color: var(--primary-green) !important;
   color: white !important;
+}
+
+/* Sleek Navbar */
+.sleek-navbar {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-soft);
+  border-radius: 100px;
+  padding: 10px 16px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+}
+
+.sleek-navbar-logo {
+  width: 36px;
+  height: 36px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--primary-green);
+  color: white;
+}
+
+.sleek-btn-cream {
+  background-color: var(--bg-cream);
+  color: var(--text-secondary);
+  border: 1px solid transparent;
+  border-radius: 100px;
+  padding: 6px 16px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.sleek-btn-cream:hover {
+  background-color: #e8e6e0;
+  color: var(--text-main);
 }
