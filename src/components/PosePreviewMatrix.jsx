@@ -1,9 +1,9 @@
 import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
-import { Camera, ArrowRight, Video, Plus, Edit2, ArrowLeft } from 'lucide-react';
+import { Camera, ArrowRight, Video, Plus, Edit2, ArrowLeft, X } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 
-export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }) {
+export default function PosePreviewMatrix({ media, onRetake, onDeleteMedia, onConfirm, onBack }) {
     const { t } = useTranslation();
 
     // Mapping pose keys to their respective step numbers in the FlowManager
@@ -43,8 +43,19 @@ export default function PosePreviewMatrix({ media, onRetake, onConfirm, onBack }
                         </div>
                     ) : (
                         <div className="d-flex overflow-auto gap-2 pb-2 h-100 align-items-center" style={{ scrollbarWidth: 'thin' }}>
-                            {items.map((item) => (
+                            {items.map((item, index) => (
                                 <div key={item.id} className="position-relative flex-shrink-0 bg-dark rounded-3 overflow-hidden shadow-sm border border-secondary" style={{ width: 100, height: 100 }}>
+                                    {/* Delete Button */}
+                                    <Button
+                                        variant="danger"
+                                        size="sm"
+                                        className="position-absolute top-0 end-0 p-0 m-1 rounded-circle d-flex align-items-center justify-content-center"
+                                        style={{ width: 20, height: 20, zIndex: 10 }}
+                                        onClick={() => onDeleteMedia(poseKey, index)}
+                                    >
+                                        <X size={12} />
+                                    </Button>
+                                    
                                     {item.type === 'image' ? (
                                         <img src={item.url} alt="preview" className="w-100 h-100 object-fit-cover" />
                                     ) : (

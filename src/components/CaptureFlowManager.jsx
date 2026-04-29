@@ -45,6 +45,18 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
         setInternalStep(stepNumber);
     };
 
+    const handleDeleteMedia = (poseKey, index) => {
+        setCapturedMedia(prev => {
+            const updatedPoseMedia = [...prev[poseKey]];
+            // Optional: URL.revokeObjectURL(updatedPoseMedia[index].url) to prevent memory leaks if not used elsewhere
+            updatedPoseMedia.splice(index, 1);
+            return {
+                ...prev,
+                [poseKey]: updatedPoseMedia
+            };
+        });
+    };
+
     const handleCaptureComplete = (poseKey, mediaArray) => {
         setCapturedMedia(prev => ({
             ...prev,
@@ -79,6 +91,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                     initialGallery={capturedMedia.leftFlexion}
                     onCapture={(media) => handleCaptureComplete('leftFlexion', media)}
                     onBack={goBack}
+                    hideBackButton={isRetakeMode}
                 />;
             case 3:
                 return <PoseGuide
@@ -96,6 +109,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                     initialGallery={capturedMedia.leftExtension}
                     onCapture={(media) => handleCaptureComplete('leftExtension', media)}
                     onBack={goBack}
+                    hideBackButton={isRetakeMode}
                 />;
             case 5:
                 return <PoseGuide
@@ -113,6 +127,7 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                     initialGallery={capturedMedia.rightFlexion}
                     onCapture={(media) => handleCaptureComplete('rightFlexion', media)}
                     onBack={goBack}
+                    hideBackButton={isRetakeMode}
                 />;
             case 7:
                 return <PoseGuide
@@ -130,11 +145,13 @@ export default function CaptureFlowManager({ isExpertMode, onComplete, onBack })
                     initialGallery={capturedMedia.rightExtension}
                     onCapture={(media) => handleCaptureComplete('rightExtension', media)}
                     onBack={goBack}
+                    hideBackButton={isRetakeMode}
                 />;
             case 9:
                 return <PosePreviewMatrix
                     media={capturedMedia}
                     onRetake={jumpToCamera}
+                    onDeleteMedia={handleDeleteMedia}
                     onConfirm={() => onComplete(capturedMedia)}
                     onBack={() => {
                         jumpToCamera(8);

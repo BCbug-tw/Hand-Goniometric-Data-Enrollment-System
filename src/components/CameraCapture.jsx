@@ -3,7 +3,7 @@ import { Camera, Video, ArrowLeft, RotateCcw, X, ArrowRight, Upload } from 'luci
 import { Button, Badge } from 'react-bootstrap';
 import { useTranslation } from 'react-i18next';
 
-export default function CameraCapture({ title, side, initialGallery = [], onCapture, onBack }) {
+export default function CameraCapture({ title, side, initialGallery = [], onCapture, onBack, hideBackButton = false }) {
     const { t } = useTranslation();
     const [mode, setMode] = useState('photo'); // 'photo' | 'video'
     const [isRecording, setIsRecording] = useState(false);
@@ -161,19 +161,21 @@ export default function CameraCapture({ title, side, initialGallery = [], onCapt
             {/* Top Navigation Bar - Now solid and separate */}
             <div className="p-3 d-flex justify-content-between align-items-center bg-black bg-opacity-75 text-white">
                 <div className="d-flex align-items-center gap-3">
-                    <Button
-                        variant="dark"
-                        className="rounded-circle d-flex align-items-center justify-content-center p-2 border-secondary"
-                        onClick={() => { stopCamera(); onBack(); }}
-                    >
-                        <ArrowLeft size={24} />
-                    </Button>
+                    {!hideBackButton && (
+                        <Button
+                            variant="dark"
+                            className="rounded-circle d-flex align-items-center justify-content-center p-2 border-secondary"
+                            onClick={() => { stopCamera(); onBack(); }}
+                        >
+                            <ArrowLeft size={24} />
+                        </Button>
+                    )}
                     <div className="fw-bold fs-5 text-light">
                         {title}
                     </div>
                 </div>
 
-                {gallery.length > 0 && !isRecording && (
+                {(!isRecording && (gallery.length > 0 || hideBackButton)) && (
                     <Button
                         onClick={handleComplete}
                         className="btn-primary-action rounded-pill d-flex align-items-center gap-2 fw-medium px-4 py-2 shadow-sm"
