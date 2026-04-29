@@ -37,18 +37,6 @@ export default function PreConfirmation({ data, isExpertMode, setIsExpertMode, o
                 </Card.Body>
             </Card>
 
-            <Card className="bg-light shadow-none rounded-4 mb-5" style={{ border: '2px dashed #dee2e6' }}>
-                <Card.Body className="p-5 text-center d-flex flex-column align-items-center justify-content-center" style={{ minHeight: '200px' }}>
-                    <div className="bg-white p-3 rounded-circle shadow-sm mb-3">
-                        <Video size={32} className="text-muted" />
-                    </div>
-                    <h5 className="fw-bold text-secondary mb-2">{t('pre_confirmation.guide_title')}</h5>
-                    <p className="text-muted small mb-0 mx-auto" style={{ maxWidth: '300px' }}>
-                        {t('pre_confirmation.guide_placeholder')}
-                    </p>
-                </Card.Body>
-            </Card>
-
             <div className="d-flex gap-3 mt-4 mb-3">
                 <Button
                     variant="outline-secondary"
